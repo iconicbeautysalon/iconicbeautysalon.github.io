@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iconic Beauty Salon - Prices</title>
+
+  <!-- Favicon links -->
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+
+  <!-- CSS styles -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 80px;
+    background-color: #f4f4f4;
+    color: #D6A440; /* goldish */
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #D6A440;
+    padding: 1rem 2rem; /* add horizontal padding for flex spacing */
+    
+    /* NEW: flex container for header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  /* NEW: container for logo + title on left */
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Logo inside header */
+  header img {
+    height: 80px;
+    margin-right: 15px; /* changed to horizontal spacing */
+    display: block;
+  }
+
+  header h1 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  nav {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+
+  nav a {
+    margin: 0 15px;
+    color: #D6A440;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* NEW: book now button style */
+  .book-now-btn {
+    background-color: #D6A440;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+  }
+
+  .book-now-btn:hover {
+    background-color: #b8860b;
+    color: white;
+  }
+
+  main {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #222; /* dark background */
+    color: #D6A440;
+    border-radius: 8px;
+  }
+
+  main h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    border-bottom: 2px solid #D6A440;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  tbody td {
+    padding: 0.6rem;
+    border-bottom: 1px solid #444;
+    font-size: 1rem;
+  }
+
+  thead th,
+  tbody td {
+    text-align: center;
+  }
+
+  tbody tr:hover {
+    background-color: #333;
+  }
+
+  footer {
+    background-color: #333;
+    color: #D6A440;
+    text-align: center;
+    padding: 1rem;
+    position: static;
+    bottom: 0;
+    width: 100%;
+  }
+
+/* Optimise mobile view */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header img {
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+
+  nav {
+    margin: 1rem 0;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .book-now-btn {
+    margin-top: 1rem;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+  <header>
+   <div class="header-1">
+    <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+    <h1>Iconic Beauty Salon</h1>
+    </div>
+   <div class="header-1">
+    <nav>
+      <a href="home_page_ibs.html">Home</a>
+      <a href="prices_ibs.html">Prices</a>
+      <a href="contact_us_ibs.html">Contact Us</a>
+      <a href="gallery_ibs.html">Gallery</a>
+    </nav>
+    </div>
+    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
+  </header>
+  <!-- Your Price List section -->
+  <main>
+  <h2><u><b>Our Price List</b></u></h2>
+
+  <section>
+    <h3>Special Packages</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Eyebrows Thread & Tint</td><td>From £10</td></tr>
+        <tr><td>Brow & Lash Tint</td><td>From £15</td></tr>
+        <tr><td>Brow Thread, Tint and Eyelashes Tint</td><td>From £20</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>Threading</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Eyebrows</td><td>From £5</td></tr>
+        <tr><td>Forehead</td><td>From £5</td></tr>
+        <tr><td>Chin & Neck</td><td>From £7</td></tr>
+        <tr><td>Face Sides</td><td>From £8</td></tr>
+        <tr><td>Upper Lip</td><td>From £5</td></tr>
+        <tr><td>Lower Lip</td><td>From £2</td></tr>
+        <tr><td>Full Face</td><td>From £25</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>Tinting / Dye</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Eyebrows</td><td>From £7</td></tr>
+        <tr><td>Eyelashes</td><td>From £10</td></tr>
+        <tr><td>Eyebrows and Eyelashes</td><td>From £15</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>Manicure / Pedicure </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Manicure (Shellac/Gel)</td><td>From £10</td></tr>
+        <tr><td>Manicure (No Polish)</td><td>From £24</td></tr>
+        <tr><td>Pedicure (Gel Polish) </td><td>From £32</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>Waxing</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Eyebrows</td><td>From £5</td></tr>
+        <tr><td>Forehead</td><td>From £5</td></tr>
+        <tr><td>Chin</td><td>From £6</td></tr>
+        <tr><td>Neck</td><td>From £6</td></tr>
+        <tr><td>Face Sides</td><td>From £8</td></tr>
+        <tr><td>Upper Lip</td><td>From £5</td></tr>
+        <tr><td>Lower Lip</td><td>From £2</td></tr>
+        <tr><td>Full Face</td><td>From £25</td></tr>
+        <tr><td>Nose</td><td>From £3</td></tr>
+        <tr><td>Ears</td><td>From £3</td></tr>
+        <tr><td>Full Face</td><td>From £26</td></tr>
+        <tr><td>Under Arms</td><td>From £10</td></tr>
+        <tr><td>Half Arms</td><td>From £16</td></tr>
+        <tr><td>Full Arms</td><td>From £20</td></tr>
+        <tr><td>Half Legs</td><td>From £18</td></tr>
+        <tr><td>Full Legs</td><td>From £23</td></tr>
+        <tr><td>Full Back</td><td>From £18</td></tr>
+        <tr><td>Bikini Line</td><td>From £15</td></tr>
+        <tr><td>Full Bikini</td><td>From £25</td></tr>
+        <tr><td>Full Body</td><td>From £45</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <section>
+    <h3>Henna</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Kids Henna</td><td>From £3</td></tr>
+        <tr><td>Adults Henna</td><td>From £5</td></tr>
+        <tr><td>Bridal Henna</td><td>From £50</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <section>
+    <h3>Haircuts</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Shampoo / Blowdry</td><td>From £20</td></tr>
+        <tr><td>Wash / Cut / Blowdry</td><td>From £35</td></tr>
+        <tr><td>Wash / Cut / Roughdry</td><td>From £25</td></tr>
+        <tr><td>Perming</td><td>From £40</td></tr>
+        <tr><td>Hair Up</td><td>From £35</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h3>Hair Colouring</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>All Over - Below Shoulder</td><td>From £45</td></tr>
+        <tr><td>All Over - Over Shoulder</td><td>From £38</td></tr>
+        <tr><td>Root Retouch</td><td>From £30</td></tr>
+        <tr><td>Toner</td><td>From £25</td></tr>
+        <tr><td>Cap Highlights</td><td>From £50</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <section>
+    <h3>Hair Foil Highlights</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>T Section</td><td>From £40</td></tr>
+        <tr><td>Half Head</td><td>From £45</td></tr>
+        <tr><td>Full Head</td><td>From £60</td></tr>
+        <tr><td>Balayage</td><td>From £50</td></tr>
+        <tr><td>Ombre</td><td>From £50</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  </main>
+
+
+  <footer>
+    <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
+  </footer>
+</body>
+</html>

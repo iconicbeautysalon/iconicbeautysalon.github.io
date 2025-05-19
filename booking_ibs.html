@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iconic Beauty Salon - Booking </title>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 80px;
+    background-color: #f4f4f4;
+    color: #D6A440; /* goldish */
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #D6A440;
+    padding: 1rem 2rem; /* add horizontal padding for flex spacing */
+    
+    /* NEW: flex container for header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  /* NEW: container for logo + title on left */
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Logo inside header */
+  header img {
+    height: 80px;
+    margin-right: 15px; /* changed to horizontal spacing */
+    display: block;
+  }
+
+  header h1 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  nav {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+
+  nav a {
+    margin: 0 15px;
+    color: #D6A440;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* NEW: book now button style */
+  .book-now-btn {
+    background-color: #D6A440;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+  }
+
+  .book-now-btn:hover {
+    background-color: #b8860b;
+    color: white;
+  }
+
+  main {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #222; /* dark background */
+    color: #D6A440;
+    border-radius: 8px;
+  }
+
+  main h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+/* Optimise mobile view */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header img {
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+
+  nav {
+    margin: 1rem 0;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .book-now-btn {
+    margin-top: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+   <div class="header-1">
+    <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+    <h1>Iconic Beauty Salon</h1>
+    </div>
+   <div class="header-1">
+    <nav>
+      <a href="home_page_ibs.html">Home</a>
+      <a href="prices_ibs.html">Prices</a>
+      <a href="contact_us_ibs.html">Contact Us</a>
+      <a href="gallery_ibs.html">Gallery</a>
+    </nav>
+    </div>
+    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
+  </header>
+
+<main>
+  <h2 style="text-align: center;">Book Your Appointment</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd0IS-G7nwpz-vbuYoiictLQQUlw2fkWuDbRWaOtiY6pZl8MQ/viewform?embedded=true"
+          width="100%" 
+          height="800" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0"
+          style="border: none;">
+    Loading…
+  </iframe>
+</main>
+
+  <footer>
+    <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

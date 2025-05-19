@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iconic Beauty Salon - Contact Us </title>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 80px;
+      background-color: #f4f4f4;
+      color: #D6A440; /* goldish */
+    }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #D6A440;
+    padding: 1rem 2rem; /* add horizontal padding for flex spacing */
+    
+    /* NEW: flex container for header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  /* NEW: container for logo + title on left */
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Logo inside header */
+  header img {
+    height: 80px;
+    margin-right: 15px; /* changed to horizontal spacing */
+    display: block;
+  }
+  header h1 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  nav {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+
+    nav a {
+      margin: 0 15px;
+      color: #D6A440; /* goldish */
+      text-decoration: none;
+      font-weight: 600; /* makes it bolder */
+    }
+
+    /* Ensure link styles stay gold */
+    nav a:visited,
+    nav a:hover,
+    nav a:active {
+      color: #D6A440; /* goldish */
+    }
+
+  /* NEW: book now button style */
+  .book-now-btn {
+    background-color: #D6A440;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+  }
+
+  .book-now-btn:hover {
+    background-color: #b8860b;
+    color: white;
+  }
+
+  main {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #222; /* dark background */
+    font-family: Arial, sans-serif;
+    color: #D6A440; /* goldish */
+  }
+  main h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+   h3 {
+    text-align: center;
+  }
+ul li a {
+  color: #D6A440;       /* your gold color */
+  text-decoration: none; /* removes underline */
+}
+
+ul li a:hover {
+  color: #b8860b;       /* darker gold on hover */
+  text-decoration: underline; /* optional */
+}
+.email-list a {
+  color: #D6A440;          /* gold color */
+  text-decoration: none;   /* no underline */
+}
+
+.email-list a:hover {
+  color: #b8860b;          /* darker gold on hover */
+  text-decoration: underline;
+}
+
+  .contact-info {
+    background-color: #222;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info p, .contact-info ul {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .contact-info ul li {
+    margin: 0.5rem 0;
+  }
+
+  .map h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .map p {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .map a {
+    color: #D6A440;
+    text-decoration: underline;
+  }
+
+  .map a:hover {
+    color: #b8860b; /* darker gold on hover */
+  }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: static;
+      bottom: 0;
+      width: 100%;
+    }
+
+/* Optimise mobile view */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header img {
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+
+  nav {
+    margin: 1rem 0;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .book-now-btn {
+    margin-top: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+   <div class="header-1">
+    <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+    <h1>Iconic Beauty Salon</h1>
+    </div>
+   <div class="header-1">
+    <nav>
+      <a href="home_page_ibs.html">Home</a>
+      <a href="prices_ibs.html">Prices</a>
+      <a href="contact_us_ibs.html">Contact Us</a>
+      <a href="gallery_ibs.html">Gallery</a>
+    </nav>
+    </div>
+    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
+  </header>
+
+<main>
+  <h2><u><b>Contact Us </b></u></h2>
+  
+  <section class="contact-info">
+    <h3>Address</h3>
+    <ul>
+      <li>454 St Albans Road</li>
+      <li>Watford, UK</li>
+      <li>WD24 6PJ</li>
+    </ul>
+
+    <h3>Opening Times</h3>
+    <ul>
+      <li>Monday - Sunday: 9:00 AM - 6:00 PM</li>
+    </ul>
+
+    <h3>Phone Number</h3>
+    <ul>
+      <li><a href="tel:01932869564">01932 869 564</a></li>
+      <li><a href="tel:07776099979">07776 099 979</a></li>
+    </ul>
+<h3>Email</h3>
+<ul class="email-list">
+  <li><a href="mailto:iconicbeautysalonltd@gmail.com">iconicbeautysalonltd@gmail.com</a></li>
+</ul>
+  </section>
+  
+  <section class="map">
+    <h3>Find Us Here</h3>
+<div style="text-align: center;">
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2473.998054050763!2d-0.39914232336968936!3d51.67817867185271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766aa407a34ddb%3A0x82c322e75fc52212!2sIconic%20Beauty%20Salon%20Ltd!5e0!3m2!1sen!2suk!4v1747661768587!5m2!1sen!2suk" 
+width="600" 
+height="450" 
+style="border:0;" 
+allowfullscreen="" 
+loading="lazy" 
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+    <p><a href="https://goo.gl/maps/your-map-link" target="_blank" rel="noopener">Open in Google Maps</a></p>
+  </section>
+</main>
+
+  <footer>
+    <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
