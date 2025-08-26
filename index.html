@@ -126,13 +126,18 @@
       background-repeat: no-repeat;
     }
 
-    .left-panel {
-      background-image: url('IBS.jpg');
-    }
+    .left-panel, .right-panel {
+  display: flex;
+  flex-direction: column;
+  width: 200px; /* adjust as needed */
+}
 
-    .right-panel {
-      background-image: url('IBS.jpg');
-    }
+.side-image {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
     .center-content {
       max-width: 700px;
@@ -278,7 +283,17 @@
         </div>
       </div>
 
-      <div class="side-panel right-panel"></div>
+      <div class="side-panel left-panel">
+  <div class="side-image" style="background-image: url('image16.jpg');"></div>
+  <div class="side-image" style="background-image: url('image10.jpg');"></div>
+  <div class="side-image" style="background-image: url('image8.jpg');"></div>
+</div>
+
+<div class="side-panel right-panel">
+  <div class="side-image" style="background-image: url('image6.jpg');"></div>
+  <div class="side-image" style="background-image: url('image9.jpg');"></div>
+  <div class="side-image" style="background-image: url('image1.jpg');"></div>
+</div>
     </div>
   </main>
 
@@ -287,4 +302,5 @@
   </footer>
 </body>
 </html>
+
 
