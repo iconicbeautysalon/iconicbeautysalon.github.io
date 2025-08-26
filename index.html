@@ -78,7 +78,38 @@
       background-color: #b8860b;
       color: white;
     }
+<section class="gallery">
+  <img src="images/wax.jpg" alt="Waxing Service">
+  <img src="images/eyebrow.jpg" alt="Eyebrow Styling">
+  <img src="images/massage.jpg" alt="Massage Treatment">
+  <img src="images/professional.jpg" alt="Professional Beauty Treatment">
+  <img src="images/lash.jpg" alt="Lash Extensions">
+  <img src="images/hair.jpg" alt="Hair Styling">
+</section>
 
+<style>
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.25s ease-in-out, opacity 0.25s;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+</style>
     main {
       margin-top: 130px; /* Push content below fixed header */
     }
@@ -256,3 +287,4 @@
   </footer>
 </body>
 </html>
+
