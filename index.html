@@ -78,38 +78,7 @@
       background-color: #b8860b;
       color: white;
     }
-<section class="gallery">
-  <img src="images/wax.jpg" alt="Waxing Service">
-  <img src="images/eyebrow.jpg" alt="Eyebrow Styling">
-  <img src="images/massage.jpg" alt="Massage Treatment">
-  <img src="images/professional.jpg" alt="Professional Beauty Treatment">
-  <img src="images/lash.jpg" alt="Lash Extensions">
-  <img src="images/hair.jpg" alt="Hair Styling">
-</section>
 
-<style>
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin: 20px auto;
-  max-width: 1200px;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  transition: transform 0.25s ease-in-out, opacity 0.25s;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
-}
-</style>
     main {
       margin-top: 130px; /* Push content below fixed header */
     }
@@ -126,18 +95,13 @@
       background-repeat: no-repeat;
     }
 
-    .left-panel, .right-panel {
-  display: flex;
-  flex-direction: column;
-  width: 200px; /* adjust as needed */
-}
+    .left-panel {
+      background-image: url('IBS.jpg');
+    }
 
-.side-image {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+    .right-panel {
+      background-image: url('IBS.jpg');
+    }
 
     .center-content {
       max-width: 700px;
@@ -263,12 +227,12 @@
     <div class="page-wrapper">
       <div class="side-panel left-panel"></div>
 
-<div class="center-content">
-  <div style="text-align: center;">
-    <img src="shopfront.jpg" 
-         alt="Iconic Beauty Salon Storefront" 
-         style="width: 100%; max-width: 700px; max-height: 400px; object-fit: cover; border-radius: 8px;">
-  </div>
+      <div class="center-content">
+        <div style="text-align: center;">
+          <img src="shopfront.jpg" 
+               alt="Iconic Beauty Salon Storefront" 
+               style="width: 100%; max-width: 700px; max-height: 400px; object-fit: cover; border-radius: 8px;">
+        </div>
         <h2><b>Transform yourself into a Beauty Icon.</b></h2>
         <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
         <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
@@ -283,17 +247,7 @@
         </div>
       </div>
 
-      <div class="side-panel left-panel">
-  <div class="side-image" style="background-image: url('image16.jpg');"></div>
-  <div class="side-image" style="background-image: url('image10.jpg');"></div>
-  <div class="side-image" style="background-image: url('image8.jpg');"></div>
-</div>
-
-<div class="side-panel right-panel">
-  <div class="side-image" style="background-image: url('image6.jpg');"></div>
-  <div class="side-image" style="background-image: url('image9.jpg');"></div>
-  <div class="side-image" style="background-image: url('image1.jpg');"></div>
-</div>
+      <div class="side-panel right-panel"></div>
     </div>
   </main>
 
@@ -302,6 +256,3 @@
   </footer>
 </body>
 </html>
-
-
-
