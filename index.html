@@ -1,3 +1,6 @@
+
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,19 +91,18 @@
       min-height: calc(100vh - 130px);
     }
 
+    /* side panels */
     .side-panel {
+      display: flex;
+      flex-direction: column;
+      width: 200px; /* adjust how wide the side strips are */
+    }
+
+    .side-image {
       flex: 1;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-    }
-
-    .left-panel {
-      background-image: url('IBS.jpg');
-    }
-
-    .right-panel {
-      background-image: url('IBS.jpg');
     }
 
     .center-content {
@@ -225,8 +227,14 @@
 
   <main>
     <div class="page-wrapper">
-      <div class="side-panel left-panel"></div>
+      <!-- LEFT IMAGES -->
+      <div class="side-panel left-panel">
+        <div class="side-image" style="background-image: url('image16.jpg');"></div>
+        <div class="side-image" style="background-image: url('image10.jpg');"></div>
+        <div class="side-image" style="background-image: url('image8.jpg');"></div>
+      </div>
 
+      <!-- CENTER CONTENT -->
       <div class="center-content">
         <div style="text-align: center;">
           <img src="shopfront.jpg" 
@@ -247,7 +255,12 @@
         </div>
       </div>
 
-      <div class="side-panel right-panel"></div>
+      <!-- RIGHT IMAGES -->
+      <div class="side-panel right-panel">
+        <div class="side-image" style="background-image: url('image6.jpg');"></div>
+        <div class="side-image" style="background-image: url('image9.jpg');"></div>
+        <div class="side-image" style="background-image: url('image1.jpg');"></div>
+      </div>
     </div>
   </main>
 
@@ -256,3 +269,6 @@
   </footer>
 </body>
 </html>
+
+
+---
