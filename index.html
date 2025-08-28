@@ -90,21 +90,18 @@
 
     .side-panel {  
       flex: 1;  
-      background-size: cover;  
-      background-position: center;  
-      background-repeat: no-repeat;  
-      animation: slideShow 30s infinite;  
+      display: flex;  
+      flex-direction: column;  
+      gap: 10px;  
+      padding: 10px;  
+      box-sizing: border-box;  
+      overflow-y: auto;  
     }  
 
-    /* Cycle through your six images */
-    @keyframes slideShow {  
-      0%   { background-image: url('image8.jpg'); }  
-      16%  { background-image: url('image16.jpg'); }  
-      33%  { background-image: url('image10.jpg'); }  
-      50%  { background-image: url('image1.jpg'); }  
-      66%  { background-image: url('image6.jpg'); }  
-      83%  { background-image: url('image9.jpg'); }  
-      100% { background-image: url('image8.jpg'); }  
+    .side-panel img {  
+      width: 100%;  
+      border-radius: 8px;  
+      object-fit: cover;  
     }  
 
     .center-content {  
@@ -176,8 +173,15 @@
 
   <main>  
     <div class="page-wrapper">  
-      <div class="side-panel"></div>  
+      
+      <!-- LEFT PANEL with 3 images -->
+      <div class="side-panel">  
+        <img src="image8.jpg" alt="Salon service image">  
+        <img src="image16.jpg" alt="Salon service image">  
+        <img src="image10.jpg" alt="Salon service image">  
+      </div>  
 
+      <!-- CENTER CONTENT -->
       <div class="center-content">  
         <div style="text-align: center;">  
           <img src="shopfront.jpg" alt="Iconic Beauty Salon Storefront" style="width: 100%; max-width: 700px; max-height: 400px; object-fit: cover; border-radius: 8px;">  
@@ -196,7 +200,13 @@
         </div>  
       </div>  
 
-      <div class="side-panel"></div>  
+      <!-- RIGHT PANEL with the other 3 images -->
+      <div class="side-panel">  
+        <img src="image1.jpg" alt="Salon service image">  
+        <img src="image6.jpg" alt="Salon service image">  
+        <img src="image9.jpg" alt="Salon service image">  
+      </div>  
+
     </div>  
   </main>  
 
