@@ -80,7 +80,7 @@
     }
 
     main {
-      margin-top: 130px;
+      margin-top: 130px; /* Push content below fixed header */
     }
 
     .page-wrapper {
@@ -93,32 +93,6 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      padding: 1rem 0;
-    }
-
-    .side-image {
-      width: 80%;
-      max-width: 200px;
-      border-radius: 12px;
-      margin: 1rem 0;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-      box-shadow: 0 0 15px rgba(214,164,64,0.8), 0 0 30px rgba(184,134,11,0.6);
-    }
-
-    .side-image.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .side-image:hover {
-      box-shadow: 0 0 20px #FFD700, 0 0 40px #FFB700, 0 0 60px #FFA500;
-      transform: scale(1.05);
     }
 
     .left-panel {
@@ -251,14 +225,8 @@
 
   <main>
     <div class="page-wrapper">
-      <!-- Left glowing image panel -->
-      <div class="side-panel left-panel">
-        <img src="service1.jpg" alt="Service 1" class="side-image">
-        <img src="service2.jpg" alt="Service 2" class="side-image">
-        <img src="service3.jpg" alt="Service 3" class="side-image">
-      </div>
+      <div class="side-panel left-panel"></div>
 
-      <!-- Center content -->
       <div class="center-content">
         <div style="text-align: center;">
           <img src="shopfront.jpg" 
@@ -279,35 +247,12 @@
         </div>
       </div>
 
-      <!-- Right glowing image panel -->
-      <div class="side-panel right-panel">
-        <img src="service4.jpg" alt="Service 4" class="side-image">
-        <img src="service5.jpg" alt="Service 5" class="side-image">
-        <img src="service6.jpg" alt="Service 6" class="side-image">
-      </div>
+      <div class="side-panel right-panel"></div>
     </div>
   </main>
 
   <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Fade-in effect for side images
-    const sideImages = document.querySelectorAll('.side-image');
-
-    function checkVisibility() {
-      const triggerBottom = window.innerHeight * 0.9;
-      sideImages.forEach(img => {
-        const boxTop = img.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) {
-          img.classList.add('visible');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('load', checkVisibility);
-  </script>
 </body>
-            
+</html>
