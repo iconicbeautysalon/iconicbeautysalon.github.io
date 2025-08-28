@@ -1,258 +1,248 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Iconic Beauty Salon - Home</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
-  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #222;
-      color: #B8860B;
-    }
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  
+  <title>Iconic Beauty Salon - Home</title>  
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">  
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">  
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">  
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">    <style>  
+    body {  
+      font-family: Arial, sans-serif;  
+      margin: 0;  
+      padding: 0;  
+      background-color: #222;  
+      color: #B8860B;  
+    }  
+  
+    header {  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      background-color: #333;  
+      color: #D6A440;  
+      padding: 1rem 2rem;  
+      display: flex;  
+      align-items: center;  
+      justify-content: space-between;  
+      z-index: 10;  
+      box-sizing: border-box;  
+    }  
+  
+    .header-left {  
+      display: flex;  
+      align-items: center;  
+    }  
+  
+    .header-left img {  
+      height: 80px;  
+      margin-right: 15px;  
+    }  
+  
+    .header-left h1 {  
+      margin: 0;  
+      font-size: 2rem;  
+      white-space: nowrap;  
+    }  
+  
+    nav {  
+      margin-left: 2rem;  
+    }  
+  
+    nav a {  
+      margin: 0 10px;  
+      color: #D6A440;  
+      text-decoration: none;  
+      font-weight: 600;  
+    }  
+  
+    nav a:hover {  
+      text-decoration: underline;  
+    }  
+  
+    .book-now-btn {  
+      background-color: #D6A440;  
+      color: #333;  
+      padding: 10px 20px;  
+      border-radius: 25px;  
+      text-decoration: none;  
+      font-weight: bold;  
+      white-space: nowrap;  
+    }  
+  
+    .book-now-btn:hover {  
+      background-color: #b8860b;  
+      color: white;  
+    }  
+  
+    main {  
+      margin-top: 130px; /* Push content below fixed header */  
+    }  
+  
+    .page-wrapper {  
+      display: flex;  
+      min-height: calc(100vh - 130px);  
+    }  
+  
+    .side-panel {  
+      flex: 1;  
+      background-size: cover;  
+      background-position: center;  
+      background-repeat: no-repeat;  
+    }  
+  
+    .left-panel {  
+      background-image: url('IBS.jpg');  
+    }  
+  
+    .right-panel {  
+      background-image: url('IBS.jpg');  
+    }  
+  
+    .center-content {  
+      max-width: 700px;  
+      width: 100%;  
+      padding: 2rem 1rem 4rem;  
+      background-color: #222;  
+      color: #D6A440;  
+      border-radius: 8px;  
+      z-index: 1;  
+      position: relative;  
+      text-align: center;  
+    }  
+  
+    .social-buttons {  
+      margin-top: 2rem;  
+      display: flex;  
+      justify-content: center;  
+      gap: 1rem;  
+    }  
+  
+    .social-btn {  
+      padding: 0.5rem 1.5rem;  
+      border-radius: 25px;  
+      font-weight: bold;  
+      text-decoration: none;  
+      color: #333;  
+      background-color: #D6A440;  
+      transition: background-color 0.3s ease;  
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  
+    }  
+  
+    .social-btn:hover {  
+      background-color: #b8860b;  
+      color: white;  
+    }  
+  
+    .social-btn.facebook {  
+      background-color: #3b5998;  
+      color: white;  
+    }  
+  
+    .social-btn.facebook:hover {  
+      background-color: #2d4373;  
+    }  
+  
+    .social-btn.instagram {  
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);  
+      color: white;  
+    }  
+  
+    .social-btn.instagram:hover {  
+      opacity: 0.85;  
+    }  
+  
+    .social-btn.tiktok {  
+      background-color: white;  
+      color: black;  
+    }  
+  
+    .social-btn.tiktok:hover {  
+      background-color: #f5f5f5;  
+    }  
+  
+    footer {  
+      background-color: #333;  
+      color: white;  
+      text-align: center;  
+      padding: 1rem;  
+    }  
+  
+    @media (max-width: 768px) {  
+      .page-wrapper {  
+        flex-direction: column;  
+      }  
+  
+      .side-panel {  
+        display: none;  
+      }  
+  
+      header {  
+        flex-direction: column;  
+        align-items: center;  
+        text-align: center;  
+      }  
+  
+      .header-left {  
+        flex-direction: column;  
+      }  
+  
+      .header-left img {  
+        height: 60px;  
+        margin-bottom: 0.5rem;  
+      }  
+  
+      nav a {  
+        display: block;  
+        margin: 0.5rem 0;  
+      }  
+  
+      .book-now-btn {  
+        margin-top: 1rem;  
+      }  
+    }  
+  </style>  </head>  <body>  
+  <header>  
+    <div class="header-left">  
+      <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />  
+      <h1>Iconic Beauty Salon</h1>  
+    </div>  
+    <nav>  
+      <a href="index.html">Home</a>  
+      <a href="prices_ibs.html">Prices</a>  
+      <a href="contact_us_ibs.html">Contact Us</a>  
+      <a href="gallery_ibs.html">Gallery</a>  
+    </nav>  
+    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>  
+  </header>    <main>  
+    <div class="page-wrapper">  
+      <div class="side-panel left-panel"></div>  <div class="center-content">  
+    <div style="text-align: center;">  
+      <img src="shopfront.jpg"   
+           alt="Iconic Beauty Salon Storefront"   
+           style="width: 100%; max-width: 700px; max-height: 400px; object-fit: cover; border-radius: 8px;">  
+    </div>  
+    <h2><b>Transform yourself into a Beauty Icon.</b></h2>  
+    <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>  
+    <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>  
+    <p>Whether you're looking for a relaxing facial, a stylish haircut, or a complete makeover, we provide personalised care in a welcoming environment.</p>  
+    <p>Book your appointment today and experience the iconic difference.</p>  
+    <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>  
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      color: #D6A440;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 10;
-      box-sizing: border-box;
-    }
+    <div class="social-buttons">  
+      <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook" aria-label="Facebook">Facebook</a>  
+      <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram" aria-label="Instagram">Instagram</a>  
+      <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok" aria-label="TikTok">TikTok</a>  
+    </div>  
+  </div>  
 
-    .header-left {
-      display: flex;
-      align-items: center;
-    }
+  <div class="side-panel right-panel"></div>  
+</div>
 
-    .header-left img {
-      height: 80px;
-      margin-right: 15px;
-    }
-
-    .header-left h1 {
-      margin: 0;
-      font-size: 2rem;
-      white-space: nowrap;
-    }
-
-    nav {
-      margin-left: 2rem;
-    }
-
-    nav a {
-      margin: 0 10px;
-      color: #D6A440;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .book-now-btn {
-      background-color: #D6A440;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .book-now-btn:hover {
-      background-color: #b8860b;
-      color: white;
-    }
-
-    main {
-      margin-top: 130px; /* Push content below fixed header */
-    }
-
-    .page-wrapper {
-      display: flex;
-      min-height: calc(100vh - 130px);
-    }
-
-    .side-panel {
-      flex: 1;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .left-panel {
-      background-image: url('IBS.jpg');
-    }
-
-    .right-panel {
-      background-image: url('IBS.jpg');
-    }
-
-    .center-content {
-      max-width: 700px;
-      width: 100%;
-      padding: 2rem 1rem 4rem;
-      background-color: #222;
-      color: #D6A440;
-      border-radius: 8px;
-      z-index: 1;
-      position: relative;
-      text-align: center;
-    }
-
-    .social-buttons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .social-btn {
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
-      background-color: #D6A440;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .social-btn:hover {
-      background-color: #b8860b;
-      color: white;
-    }
-
-    .social-btn.facebook {
-      background-color: #3b5998;
-      color: white;
-    }
-
-    .social-btn.facebook:hover {
-      background-color: #2d4373;
-    }
-
-    .social-btn.instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      color: white;
-    }
-
-    .social-btn.instagram:hover {
-      opacity: 0.85;
-    }
-
-    .social-btn.tiktok {
-      background-color: white;
-      color: black;
-    }
-
-    .social-btn.tiktok:hover {
-      background-color: #f5f5f5;
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .page-wrapper {
-        flex-direction: column;
-      }
-
-      .side-panel {
-        display: none;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .header-left {
-        flex-direction: column;
-      }
-
-      .header-left img {
-        height: 60px;
-        margin-bottom: 0.5rem;
-      }
-
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-
-      .book-now-btn {
-        margin-top: 1rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <div class="header-left">
-      <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
-      <h1>Iconic Beauty Salon</h1>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="prices_ibs.html">Prices</a>
-      <a href="contact_us_ibs.html">Contact Us</a>
-      <a href="gallery_ibs.html">Gallery</a>
-    </nav>
-    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
-  </header>
-
-  <main>
-    <div class="page-wrapper">
-      <div class="side-panel left-panel"></div>
-
-      <div class="center-content">
-        <div style="text-align: center;">
-          <img src="shopfront.jpg" 
-               alt="Iconic Beauty Salon Storefront" 
-               style="width: 100%; max-width: 700px; max-height: 400px; object-fit: cover; border-radius: 8px;">
-        </div>
-        <h2><b>Transform yourself into a Beauty Icon.</b></h2>
-        <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
-        <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
-        <p>Whether you're looking for a relaxing facial, a stylish haircut, or a complete makeover, we provide personalised care in a welcoming environment.</p>
-        <p>Book your appointment today and experience the iconic difference.</p>
-        <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
-
-        <div class="social-buttons">
-          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook" aria-label="Facebook">Facebook</a>
-          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram" aria-label="Instagram">Instagram</a>
-          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
-        </div>
-      </div>
-
-      <div class="side-panel right-panel"></div>
-    </div>
-  </main>
-
-  <footer>
-    <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
-  </footer>
-</body>
+  </main>    <footer>  
+    <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>  
+  </footer>  
+</body>  
 </html>
