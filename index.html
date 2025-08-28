@@ -89,10 +89,17 @@
     }
 
     .side-panel {
-      flex: 1;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-image {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
     }
 
     .left-panel {
@@ -225,14 +232,43 @@
 
   <main>
     <div class="page-wrapper">
-      <div class="side-panel left-panel"></div>
+  
+  <!-- Left Side -->
+  <div class="side-panel left-panel">
+    <div class="side-image" style="background-image: url('image10.jpg');"></div>
+    <div class="side-image" style="background-image: url('image8.jpg');"></div>
+    <div class="side-image" style="background-image: url('image16.jpg');"></div>
+  </div>
 
-      <div class="center-content">
-        <div style="text-align: center;">
-          <img src="shopfront.jpg" 
-               alt="Iconic Beauty Salon Storefront" 
-               style="width: 100%; max-width: 700px; max-height: 400px; object-fit: cover; border-radius: 8px;">
-        </div>
+  <!-- Center Content -->
+  <div class="center-content">
+    <div style="text-align: center;">
+      <img src="shopfront.jpg" 
+           alt="Iconic Beauty Salon Storefront" 
+           style="width: 100%; max-width: 700px; max-height: 400px; object-fit: cover; border-radius: 8px;">
+    </div>
+    <h2><b>Transform yourself into a Beauty Icon.</b></h2>
+    <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
+    <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
+    <p>Whether you're looking for a relaxing facial, a stylish haircut, or a complete makeover, we provide personalised care in a welcoming environment.</p>
+    <p>Book your appointment today and experience the iconic difference.</p>
+    <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
+
+    <div class="social-buttons">
+      <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook" aria-label="Facebook">Facebook</a>
+      <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram" aria-label="Instagram">Instagram</a>
+      <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
+    </div>
+  </div>
+
+  <!-- Right Side -->
+  <div class="side-panel right-panel">
+    <div class="side-image" style="background-image: url('image9.jpg');"></div>
+    <div class="side-image" style="background-image: url('image1.jpg');"></div>
+    <div class="side-image" style="background-image: url('image6.jpg');"></div>
+  </div>
+
+    </div>
         <h2><b>Transform yourself into a Beauty Icon.</b></h2>
         <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
         <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
@@ -256,3 +292,4 @@
   </footer>
 </body>
 </html>
+
