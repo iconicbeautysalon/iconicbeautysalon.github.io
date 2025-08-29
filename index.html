@@ -10,6 +10,9 @@
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 
   <style>
+    /* ======================== */
+    /* Your existing styles */
+    /* ======================== */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -33,13 +36,15 @@
       box-sizing: border-box;
     }
 
-    /* Existing CSS omitted for brevity... */
+    /* ... all other existing CSS ... */
 
+    /* ======================== */
     /* Banner CSS */
+    /* ======================== */
     #full-sunday-banner {
       display: none;
       position: fixed;
-      top: -100px; /* start hidden above viewport */
+      top: -100px; /* hidden above viewport initially */
       left: 0;
       width: 100%;
       background-color: #FFD700; /* gold */
@@ -50,7 +55,7 @@
       font-size: 1.2em;
       border-bottom: 2px solid black;
       z-index: 9999;
-      transition: top 0.5s ease-in-out; /* smooth slide */
+      transition: top 0.5s ease-in-out;
     }
     #full-sunday-banner.show {
       top: 0; /* slide down into view */
@@ -59,27 +64,16 @@
 </head>
 
 <body>
+  <!-- ======================== -->
   <!-- Full Sunday Appointments Banner -->
+  <!-- ======================== -->
   <div id="full-sunday-banner">
     Sunday is fully booked – no appointments available.
   </div>
 
-  <script>
-    const today = new Date();
-
-    // Calculate this coming Sunday
-    const thisSunday = new Date();
-    thisSunday.setDate(today.getDate() + ((7 - today.getDay()) % 7));
-
-    const banner = document.getElementById('full-sunday-banner');
-
-    // Show banner if today is today through Sunday
-    if (today <= thisSunday) {
-      banner.style.display = 'block';
-      setTimeout(() => banner.classList.add('show'), 100); // slide down
-    }
-  </script>
-
+  <!-- ======================== -->
+  <!-- Existing header -->
+  <!-- ======================== -->
   <header>
     <div class="header-left">
       <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
@@ -136,5 +130,24 @@
   <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
+
+  <!-- ======================== -->
+  <!-- Banner JS -->
+  <!-- ======================== -->
+  <script>
+    const today = new Date();
+
+    // Calculate this coming Sunday
+    const thisSunday = new Date();
+    thisSunday.setDate(today.getDate() + ((7 - today.getDay()) % 7));
+
+    const banner = document.getElementById('full-sunday-banner');
+
+    // Show banner if today is today through Sunday
+    if (today <= thisSunday) {
+      banner.style.display = 'block';
+      setTimeout(() => banner.classList.add('show'), 100); // slide down
+    }
+  </script>
 </body>
 </html>
