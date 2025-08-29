@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 
   <style>
     /* ======================== */
-    /* Your existing styles */
+    /* Your existing styles (unchanged) */
     /* ======================== */
     body {
       font-family: Arial, sans-serif;
@@ -36,7 +37,7 @@
       box-sizing: border-box;
     }
 
-    /* ... all other existing CSS ... */
+    /* ... all your other existing CSS ... */
 
     /* ======================== */
     /* Banner CSS */
@@ -44,7 +45,7 @@
     #full-sunday-banner {
       display: none;
       position: fixed;
-      top: -100px; /* hidden above viewport initially */
+      top: -100px; /* start hidden */
       left: 0;
       width: 100%;
       background-color: #FFD700; /* gold */
@@ -58,7 +59,7 @@
       transition: top 0.5s ease-in-out;
     }
     #full-sunday-banner.show {
-      top: 0; /* slide down into view */
+      top: 0;
     }
   </style>
 </head>
@@ -136,17 +137,13 @@
   <!-- ======================== -->
   <script>
     const today = new Date();
-
-    // Calculate this coming Sunday
     const thisSunday = new Date();
     thisSunday.setDate(today.getDate() + ((7 - today.getDay()) % 7));
-
     const banner = document.getElementById('full-sunday-banner');
 
-    // Show banner if today is today through Sunday
     if (today <= thisSunday) {
       banner.style.display = 'block';
-      setTimeout(() => banner.classList.add('show'), 100); // slide down
+      setTimeout(() => banner.classList.add('show'), 100);
     }
   </script>
 </body>
