@@ -11,6 +11,47 @@
 
   <style>
     body {
+      <style>
+  #full-sunday-banner {
+    display: none;
+    position: fixed;
+    top: -100px; /* start hidden above viewport */
+    left: 0;
+    width: 100%;
+    background-color: #FFD700; /* gold */
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.2em;
+    border-bottom: 2px solid black;
+    z-index: 9999;
+    transition: top 0.5s ease-in-out; /* smooth slide */
+  }
+  #full-sunday-banner.show {
+    top: 0; /* slide down into view */
+  }
+</style>
+
+<div id="full-sunday-banner">
+  Sunday is fully booked – no appointments available.
+</div>
+
+<script>
+  const today = new Date();
+
+  // Calculate this coming Sunday
+  const thisSunday = new Date();
+  thisSunday.setDate(today.getDate() + ((7 - today.getDay()) % 7));
+
+  const banner = document.getElementById('full-sunday-banner');
+
+  // Show banner if today is before or equal to Sunday
+  if (today <= thisSunday) {
+    banner.style.display = 'block';
+    setTimeout(() => banner.classList.add('show'), 100); // slide down
+  }
+</script>
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -323,5 +364,6 @@
   </footer>
 </body>
 </html>
+
 
 
