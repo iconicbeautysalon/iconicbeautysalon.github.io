@@ -33,6 +33,22 @@
       box-sizing: border-box;
     }
 
+    /* 🔔 Banner style */
+    #booking-banner {
+      display: none;
+      background: #D6A440;
+      color: #222;
+      text-align: center;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      top: 100px; /* just below header */
+      left: 0;
+      width: 100%;
+      z-index: 9;
+    }
+
     .header-left {
       display: flex;
       align-items: center;
@@ -80,7 +96,7 @@
     }
 
     main {
-      margin-top: 130px; /* Push content below fixed header */
+      margin-top: 160px; /* pushed down for header + banner */
     }
 
     .page-wrapper {
@@ -89,49 +105,41 @@
     }
 
     .side-panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.side-image {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;/* Animation keyframes */
-@keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Apply to side images */
-.side-image {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* Animation */
-  opacity: 0;
-  animation: fadeSlideIn 1s ease forwards;
-}
-
-/* Staggered timing for each image */
-.left-panel .side-image:nth-child(1) { animation-delay: 0.2s; }
-.left-panel .side-image:nth-child(2) { animation-delay: 0.4s; }
-.left-panel .side-image:nth-child(3) { animation-delay: 0.6s; }
-
-.right-panel .side-image:nth-child(1) { animation-delay: 0.8s; }
-.right-panel .side-image:nth-child(2) { animation-delay: 1s; }
-.right-panel .side-image:nth-child(3) { animation-delay: 1.2s; }
-}
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
+
+    .side-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .side-image {
+      opacity: 0;
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    .left-panel .side-image:nth-child(1) { animation-delay: 0.2s; }
+    .left-panel .side-image:nth-child(2) { animation-delay: 0.4s; }
+    .left-panel .side-image:nth-child(3) { animation-delay: 0.6s; }
+
+    .right-panel .side-image:nth-child(1) { animation-delay: 0.8s; }
+    .right-panel .side-image:nth-child(2) { animation-delay: 1s; }
+    .right-panel .side-image:nth-child(3) { animation-delay: 1.2s; }
 
     .left-panel {
       background-image: url('IBS.jpg');
@@ -261,6 +269,11 @@
     <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
   </header>
 
+  <!-- 🔔 Booking Banner -->
+  <div id="booking-banner">
+    🚫 Fully Booked on Sunday, Aug 31 – No appointments available 🚫
+  </div>
+
   <main>
     <div class="page-wrapper">
   
@@ -300,29 +313,26 @@
   </div>
 
     </div>
-        <h2><b>Transform yourself into a Beauty Icon.</b></h2>
-        <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
-        <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
-        <p>Whether you're looking for a relaxing facial, a stylish haircut, or a complete makeover, we provide personalised care in a welcoming environment.</p>
-        <p>Book your appointment today and experience the iconic difference.</p>
-        <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
-
-        <div class="social-buttons">
-          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook" aria-label="Facebook">Facebook</a>
-          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram" aria-label="Instagram">Instagram</a>
-          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
-        </div>
-      </div>
-
-      <div class="side-panel right-panel"></div>
-    </div>
   </main>
 
   <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
+
+  <!-- 🔔 Banner Date Logic -->
+  <script>
+    (function() {
+      const today = new Date();
+      const month = today.getMonth(); // 0=Jan, 7=Aug
+      const date = today.getDate();   // day of month
+
+      const banner = document.getElementById("booking-banner");
+
+      // Show banner on Aug 30 or Aug 31 only
+      if ((month === 7 && date === 30) || (month === 7 && date === 31)) {
+        banner.style.display = "block";
+      }
+    })();
+  </script>
 </body>
 </html>
-
-
-
