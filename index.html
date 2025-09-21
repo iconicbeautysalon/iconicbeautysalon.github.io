@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,15 +8,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  
+
   <style>
+    /* === Default (non-seasonal) look === */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #222;
       color: #B8860B;
-      position: relative; /* needed for corner decorations */
     }
 
     header {
@@ -43,7 +42,22 @@
       font-size: 16px;
       font-weight: bold;
       position: fixed;
-      top: 100px;   
+      top: 100px;
+      left: 0;
+      width: 100%;
+      z-index: 9;
+    }
+
+    #booking-banner {
+      display: none;
+      background: #D6A440;
+      color: #222;
+      text-align: center;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      top: 135px;
       left: 0;
       width: 100%;
       z-index: 9;
@@ -76,9 +90,7 @@
       font-weight: 600;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
 
     .book-now-btn {
       background-color: #D6A440;
@@ -95,9 +107,7 @@
       color: white;
     }
 
-    main {
-      margin-top: 200px; 
-    }
+    main { margin-top: 200px; }
 
     .page-wrapper {
       display: flex;
@@ -115,27 +125,23 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      opacity: 0;
+      animation: fadeSlideIn 1s ease forwards;
     }
 
     @keyframes fadeSlideIn {
       from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .side-image {
-      opacity: 0;
-      animation: fadeSlideIn 1s ease forwards;
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .left-panel .side-image:nth-child(1) { animation-delay: 0.2s; }
     .left-panel .side-image:nth-child(2) { animation-delay: 0.4s; }
     .left-panel .side-image:nth-child(3) { animation-delay: 0.6s; }
-
     .right-panel .side-image:nth-child(1) { animation-delay: 0.8s; }
-    .right-panel .side-image:nth-child(2) { animation-delay: 1s; }
+    .right-panel .side-image:nth-child(2) { animation-delay: 1s;   }
     .right-panel .side-image:nth-child(3) { animation-delay: 1.2s; }
 
-    .left-panel { background-image: url('IBS.jpg'); }
+    .left-panel  { background-image: url('IBS.jpg'); }
     .right-panel { background-image: url('IBS.jpg'); }
 
     .center-content {
@@ -148,11 +154,6 @@
       z-index: 1;
       position: relative;
       text-align: center;
-      box-shadow: 0 15px 30px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 140, 0, 0.15); 
-    }
-
-    .center-content h2::after {
-      content: " 🎃🍂";
     }
 
     .social-buttons {
@@ -169,27 +170,20 @@
       text-decoration: none;
       color: #333;
       background-color: #D6A440;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
-    .social-btn:hover {
-      background-color: #b8860b;
-      color: white;
-      transform: scale(1.05);
-    }
-
+    .social-btn:hover { background-color: #b8860b; color: white; }
     .social-btn.facebook { background-color: #3b5998; color: white; }
     .social-btn.facebook:hover { background-color: #2d4373; }
-
     .social-btn.instagram {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       color: white;
     }
-
-    .social-btn.instagram:hover { opacity: 0.85; transform: scale(1.05); }
+    .social-btn.instagram:hover { opacity: 0.85; }
     .social-btn.tiktok { background-color: white; color: black; }
-    .social-btn.tiktok:hover { background-color: #f5f5f5; transform: scale(1.05); }
+    .social-btn.tiktok:hover { background-color: #f5f5f5; }
 
     footer {
       background-color: #333;
@@ -200,43 +194,47 @@
 
     @media (max-width: 768px) {
       .page-wrapper { flex-direction: column; }
-      .side-panel { display: none; }
-      header { flex-direction: column; align-items: center; text-align: center; }
-      .header-left { flex-direction: column; }
+      .side-panel   { display: none; }
+      header        { flex-direction: column; align-items: center; text-align: center; }
+      .header-left  { flex-direction: column; }
       .header-left img { height: 60px; margin-bottom: 0.5rem; }
-      nav a { display: block; margin: 0.5rem 0; }
+      nav a         { display: block; margin: 0.5rem 0; }
       .book-now-btn { margin-top: 1rem; }
     }
 
-    /* 🎃 Autumn corner decorations */
-    .corner-decoration {
+    /* === 🎃 Autumn / Spooky Theme (active until Nov 1) === */
+    body.autumn {
+      background-color: #1b1b1b;
+      color: #f0a34a;
+      background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><text x="0" y="20" font-size="20" fill="%23f0a34a">&#127810;</text></svg>');
+      background-repeat: repeat;
+      background-size: 100px;
+    }
+    header.autumn {
+      background-color: #2c1a0d;
+      color: #ffb347;
+    }
+    .autumn nav a,
+    .autumn .book-now-btn { color: #ffb347; }
+    .autumn .book-now-btn {
+      background-color: #ff7f50;
+      color: #1b1b1b;
+    }
+    .autumn #spooky-banner {
+      background: #ff7f50;
+      color: #1b1b1b;
+      text-align: center;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
       position: fixed;
-      width: 80px;
-      height: 80px;
-      z-index: 15;
-      pointer-events: none;
+      top: 65px;
+      left: 0;
+      width: 100%;
+      z-index: 11;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
-
-    .top-left { top: 10px; left: 10px; background: url('—Pngtree—cute yellow pumpkin_16954559.png') no-repeat center/contain; filter: drop-shadow(0 0 10px #FF7518); }
-    .top-right { top: 10px; right: 10px; background: url('435-4357287_spider-web-cobweb-transparent-background-spider-web-clipart.png') no-repeat center/contain; }
-    .bottom-left { bottom: 10px; left: 10px; background: url('435-4357287_spider-web-cobweb-transparent-background-spider-web-clipart.png') no-repeat center/contain; transform: rotate(180deg); }
-    .bottom-right { bottom: 10px; right: 10px; background: url('—Pngtree—cute yellow pumpkin_16954559.png') no-repeat center/contain; filter: drop-shadow(0 0 10px #FF7518); }
-
-    /* 🍁 Autumn Leaves */
-    .autumn-leaf {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      background: url('watercolor-autumn-leaf-ai-generative-free-png.png') no-repeat center/contain;
-      z-index: 5;
-      opacity: 0.8;
-    }
-
-    .leaf1 { top: 20%; left: 10%; transform: rotate(15deg); }
-    .leaf2 { top: 40%; right: 15%; transform: rotate(-25deg); }
-    .leaf3 { bottom: 25%; left: 20%; transform: rotate(35deg); }
-    .leaf4 { bottom: 10%; right: 30%; transform: rotate(-10deg); }
-
   </style>
 </head>
 
@@ -256,6 +254,7 @@
   </header>
 
   <div id="ladies-banner">🌸 Ladies Only 🌸</div>
+  <div id="booking-banner">🚫 Fully Booked on Sunday, Aug 31 – No appointments available 🚫</div>
 
   <main>
     <div class="page-wrapper">
@@ -291,20 +290,40 @@
         <div class="side-image" style="background-image: url('image6.jpg');"></div>
       </div>
     </div>
-
-    <!-- 🍁 Autumn Leaves -->
-    <div class="autumn-leaf leaf1"></div>
-    <div class="autumn-leaf leaf2"></div>
-    <div class="autumn-leaf leaf3"></div>
-    <div class="autumn-leaf leaf4"></div>
   </main>
 
   <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
 
-  <div class="corner-decoration top-left"></div>
-  <div class="corner-decoration top-right"></div>
-  <div class="corner-decoration bottom-left"></div>
-  <div class
+  <!-- 🎃 Seasonal Script -->
+  <script>
+    (function() {
+      const today = new Date();
+      const y = today.getFullYear();
+      const start = new Date(y, 8, 1);   // Sept 1
+      const end   = new Date(y, 10, 1);  // Nov 1 (exclusive)
 
+      // Enable autumn look between Sept 1 and Oct 31
+      if (today >= start && today < end) {
+        document.body.classList.add('autumn');
+        document.querySelector('header').classList.add('autumn');
+
+        // Spooky banner
+        const banner = document.createElement('div');
+        banner.id = 'spooky-banner';
+        banner.textContent = '🎃 Spooky Season Specials – Treat Yourself! 🎃';
+        document.body.appendChild(banner);
+      }
+
+      // Existing Aug 30–31 booking-banner logic
+      const month = today.getMonth();
+      const date = today.getDate();
+      const bookingBanner = document.getElementById("booking-banner");
+      if ((month === 7 && date === 30) || (month === 7 && date === 31)) {
+        bookingBanner.style.display = "block";
+      }
+    })();
+  </script>
+</body>
+</html>
