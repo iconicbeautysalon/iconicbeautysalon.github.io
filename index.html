@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,262 +9,98 @@
   <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 
+  <!-- 🎃 Spooky Font (Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #222;
+      background-color: #1a1a1a;
       color: #B8860B;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* 🕸️ Spooky Background Overlay */
+    body::before {
+      content: "";
+      background: url('spooky_overlay.png') repeat;
+      opacity: 0.08;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
     }
 
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      color: #D6A440;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 10;
-      box-sizing: border-box;
+      background-color: #000;
+      color: #FF7518;
+      text-shadow: 0 0 6px #ff6600;
     }
 
-    /* 🌸 Permanent Ladies Only Banner */
+    /* 🌸 Ladies Only Banner */
     #ladies-banner {
-      background: #D6A440;
-      color: #222;
-      text-align: center;
-      padding: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      position: fixed;
-      top: 100px; 
-      left: 0;
-      width: 100%;
-      z-index: 9;
-    }
-
-    /* 🔔 Temporary Booking Banner */
-    #booking-banner {
-      display: none;
-      background: #D6A440;
-      color: #222;
-      text-align: center;
-      padding: 12px;
-      font-size: 18px;
-      font-weight: bold;
-      position: fixed;
-      top: 135px; 
-      left: 0;
-      width: 100%;
-      z-index: 9;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .header-left img {
-      height: 80px;
-      margin-right: 15px;
-    }
-
-    .header-left h1 {
-      margin: 0;
-      font-size: 2rem;
-      white-space: nowrap;
-    }
-
-    nav {
-      margin-left: 2rem;
-    }
-
-    nav a {
-      margin: 0 10px;
-      color: #D6A440;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .book-now-btn {
-      background-color: #D6A440;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .book-now-btn:hover {
-      background-color: #b8860b;
-      color: white;
-    }
-
-    main {
-      margin-top: 200px; /* Adjusted for header + both banners */
-    }
-
-    .page-wrapper {
-      display: flex;
-      min-height: calc(100vh - 130px);
-    }
-
-    .side-panel {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .side-image {
-      flex: 1;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    @keyframes fadeSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .side-image {
-      opacity: 0;
-      animation: fadeSlideIn 1s ease forwards;
-    }
-
-    .left-panel .side-image:nth-child(1) { animation-delay: 0.2s; }
-    .left-panel .side-image:nth-child(2) { animation-delay: 0.4s; }
-    .left-panel .side-image:nth-child(3) { animation-delay: 0.6s; }
-
-    .right-panel .side-image:nth-child(1) { animation-delay: 0.8s; }
-    .right-panel .side-image:nth-child(2) { animation-delay: 1s; }
-    .right-panel .side-image:nth-child(3) { animation-delay: 1.2s; }
-
-    .left-panel {
-      background-image: url('IBS.jpg');
-    }
-
-    .right-panel {
-      background-image: url('IBS.jpg');
-    }
-
-    .center-content {
-      max-width: 700px;
-      width: 100%;
-      padding: 2rem 1rem 4rem;
-      background-color: #222;
-      color: #D6A440;
-      border-radius: 8px;
-      z-index: 1;
-      position: relative;
-      text-align: center;
-    }
-
-    .social-buttons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .social-btn {
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
-      background-color: #D6A440;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .social-btn:hover {
-      background-color: #b8860b;
-      color: white;
-    }
-
-    .social-btn.facebook {
-      background-color: #3b5998;
-      color: white;
-    }
-
-    .social-btn.facebook:hover {
-      background-color: #2d4373;
-    }
-
-    .social-btn.instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      color: white;
-    }
-
-    .social-btn.instagram:hover {
-      opacity: 0.85;
-    }
-
-    .social-btn.tiktok {
-      background-color: white;
+      background: #FF7518;
       color: black;
+      font-family: 'Creepster', cursive;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px black;
     }
 
-    .social-btn.tiktok:hover {
-      background-color: #f5f5f5;
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
+    /* 🧡 Spooky Season Banner */
+    #spooky-banner {
+      background: black;
+      color: orange;
       text-align: center;
-      padding: 1rem;
+      padding: 10px;
+      font-size: 18px;
+      font-family: 'Creepster', cursive;
+      text-shadow: 2px 2px 4px #ff6600;
+      position: fixed;
+      top: 135px;
+      left: 0;
+      width: 100%;
+      z-index: 9;
+      display: none;
+      animation: flicker 2s infinite alternate;
     }
 
-    @media (max-width: 768px) {
-      .page-wrapper {
-        flex-direction: column;
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
       }
+      20%, 24%, 55% {
+        opacity: 0.5;
+      }
+    }
 
-      .side-panel {
-        display: none;
-      }
+    /* 🔔 Booking Banner – keep your style */
+    #booking-banner {
+      top: 170px;
+    }
 
-      header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+    h2 {
+      font-family: 'Creepster', cursive;
+      color: #FF7518;
+      text-shadow: 2px 2px 5px black;
+    }
 
-      .header-left {
-        flex-direction: column;
-      }
+    /* 🦇 Floating spooky icons */
+    .spooky-icon {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      z-index: 20;
+      opacity: 0.8;
+      pointer-events: none;
+      animation: float 8s linear infinite;
+    }
 
-      .header-left img {
-        height: 60px;
-        margin-bottom: 0.5rem;
-      }
-
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-
-      .book-now-btn {
-        margin-top: 1rem;
-      }
+    @keyframes float {
+      from { transform: translateY(-10vh) rotate(0deg); }
+      to { transform: translateY(110vh) rotate(360deg); }
     }
   </style>
 </head>
@@ -286,9 +121,10 @@
   </header>
 
   <!-- 🌸 Permanent Ladies Only Banner -->
-  <div id="ladies-banner">
-    🌸 Ladies Only 🌸
-  </div>
+  <div id="ladies-banner">🌸 Ladies Only 🌸</div>
+
+  <!-- 🎃 Spooky Season Banner -->
+  <div id="spooky-banner">🎃 Spooky Season Special – Get Glam & Spook-tacular! 👻</div>
 
   <!-- 🔔 Temporary Booking Banner -->
   <div id="booking-banner">
@@ -319,9 +155,9 @@
         <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
 
         <div class="social-buttons">
-          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook" aria-label="Facebook">Facebook</a>
-          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram" aria-label="Instagram">Instagram</a>
-          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
+          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook">Facebook</a>
+          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram">Instagram</a>
+          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok">TikTok</a>
         </div>
       </div>
 
@@ -338,16 +174,32 @@
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
 
-  <!-- 🔔 Banner Date Logic -->
+  <!-- 🎃 JS for Spooky Effects -->
   <script>
     (function() {
       const today = new Date();
-      const month = today.getMonth(); // 0=Jan, 7=Aug
-      const date = today.getDate();   // day of month
+      const month = today.getMonth(); // 0=Jan
+      const date = today.getDate();
+      const spookyBanner = document.getElementById("spooky-banner");
+      
+      // Show spooky banner only in October
+      if (month === 9) { // October
+        spookyBanner.style.display = "block";
 
+        // Add floating spooky icons
+        const icons = ['bat.png', 'ghost.png', 'pumpkin.png'];
+        for (let i = 0; i < 6; i++) {
+          const img = document.createElement("img");
+          img.src = icons[Math.floor(Math.random() * icons.length)];
+          img.classList.add("spooky-icon");
+          img.style.left = Math.random() * 90 + "vw";
+          img.style.animationDuration = (6 + Math.random() * 4) + "s";
+          document.body.appendChild(img);
+        }
+      }
+
+      // Booking banner logic
       const banner = document.getElementById("booking-banner");
-
-      // Show banner on Aug 30 or Aug 31 only
       if ((month === 7 && date === 30) || (month === 7 && date === 31)) {
         banner.style.display = "block";
       }
