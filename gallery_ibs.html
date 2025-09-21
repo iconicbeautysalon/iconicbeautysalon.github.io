@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +7,15 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png" />
-  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
-
-  <style>
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />  <style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding-top: 100px;
     background-color: #222;
     color: #D6A440; /* goldish */
+    position: relative;
+    overflow-x: hidden;
   }
 
   header {
@@ -26,25 +25,22 @@
     width: 100%;
     background-color: #333;
     color: #D6A440;
-    padding: 1rem 2rem; /* add horizontal padding for flex spacing */
-    
-    /* NEW: flex container for header */
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    z-index: 1000;
   }
 
-  /* NEW: container for logo + title on left */
   .header-right {
     display: flex;
     align-items: center;
   }
 
-  /* Logo inside header */
   header img {
     height: 80px;
-    margin-right: 15px; /* changed to horizontal spacing */
+    margin-right: 15px;
     display: block;
     padding-left: 110px;
   }
@@ -64,13 +60,13 @@
     color: #D6A440;
     text-decoration: none;
     font-weight: 600;
+    position: relative;
   }
 
   nav a:hover {
     text-decoration: underline;
   }
 
-  /* NEW: book now button style */
   .book-now-btn {
     background-color: #D6A440;
     color: #333;
@@ -79,34 +75,37 @@
     text-decoration: none;
     font-weight: bold;
     white-space: nowrap;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
 
   .book-now-btn:hover {
     background-color: #b8860b;
     color: white;
+    transform: scale(1.05);
   }
 
-    main {
-      max-width: 600px; /* Keeps sides white */
-      margin: 2rem auto; /* Keeps sides white */
-      padding: 2rem;
-      background: #222; /* dark background */
-      text-align: center;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      position: static;
-      text-align: center;
-      padding: 1rem;
-      bottom: 0;
-      width: 100%;
-    }
+  main {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #222;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  footer {
+    background-color: #333;
+    color: white;
+    position: static;
+    text-align: center;
+    padding: 1rem;
+    bottom: 0;
+    width: 100%;
+  }
 
  main h2 {
     text-align: center;
-    color: #D6A440; /* gold-ish */
+    color: #D6A440;
     margin-bottom: 1rem;
   }
 
@@ -129,51 +128,73 @@
   }
 
   .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(-1deg);
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   }
 
+/* Spooky Autumn Theme */
+  body.autumn {
+    background: linear-gradient(to bottom, #1a1a1a, #3b2d1f);
+    color: #ffae42;
+  }
+  body.autumn header {
+    background-color: #2b1a13;
+    box-shadow: 0 0 15px rgba(255, 110, 0, 0.3);
+  }
+  body.autumn .gallery img:hover {
+    box-shadow: 0 0 20px rgba(255, 110, 0, 0.6);
+  }
+
+  /* Falling leaves animation */
+  .leaf {
+    position: fixed;
+    top: -50px;
+    width: 25px;
+    height: 25px;
+    background-image: url('leaf.png'); /* add a small leaf icon to project */
+    background-size: cover;
+    opacity: 0.7;
+    animation: fall 10s linear infinite;
+    z-index: 0;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
 /* Optimise mobile view */
-
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
     body {
-    padding-top: 270px; /* adjust if header is taller on mobile */
-  }
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-  }
+      padding-top: 270px;
+    }
+    header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+    }
 
-  .header-left {
-    flex-direction: column;
-    align-items: center;
-  }
+    header img {
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
 
-  header img {
-    height: 60px;
-    margin-bottom: 0.5rem;
-  }
+    nav {
+      margin: 1rem 0;
+    }
 
-  nav {
-    margin: 1rem 0;
-  }
+    nav a {
+      display: block;
+      margin: 0.5rem 0;
+    }
 
-  nav a {
-    display: block;
-    margin: 0.5rem 0;
+    .book-now-btn {
+      margin-top: 1rem;
+    }
   }
-
-  .book-now-btn {
-    margin-top: 1rem;
-  }
-}
-  </style>
-</head>
-<body>
-
-  <header>
+  </style></head>
+<body>  <header>
    <div class="header-1">
     <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
     <h1>Iconic Beauty Salon</h1>
@@ -187,12 +208,9 @@
     </nav>
     </div>
     <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
-  </header>
-
-
-<main>
-  <h2> <u><b> Gallery </b> </u> </h2>
-  <h2> <u><b> Hair </b> </u> </h2>
+  </header><main>
+  <h2><u><b> Gallery </b></u></h2>
+  <h2><u><b> Hair </b></u></h2>
   <div class="gallery">
     <img src="image1.jpg" alt="After Image 1">
     <img src="image2.jpg" alt="After Image 2">
@@ -207,51 +225,48 @@
     <img src="IMG-20250823-WA0017.jpg" alt="After Image 14">
     <img src="IMG-20250816-WA0031.jpg" alt="After IMG-20250823-WA0017.jpg">
     <img src="IMG-20250727-WA0117.jpg" alt="After IMG-20250816-WA0031.jpg ">
- <img src="IMG-20250829-WA0011.jpg" alt="IMG-20250727-WA0117.jpg">
- <img src="IMG-20250816-WA0037.jpg" alt="IMG-20250829-WA0011.jpg">
+    <img src="IMG-20250829-WA0011.jpg" alt="IMG-20250727-WA0117.jpg">
+    <img src="IMG-20250816-WA0037.jpg" alt="IMG-20250829-WA0011.jpg">
     <img src="IMG-20250410-WA0007.jpg" alt="After Image IMG-20250816-WA0037.jpg">
-  </div>
-  
-  <h2> <u><b> Nails </b> </u> </h2>
+  </div>  <h2><u><b> Nails </b></u></h2>
   <div class="gallery">
     <img src="image6.jpg" alt="After Image 6">
     <img src="image7.jpg" alt="After Image 7">
     <img src="image8.jpg" alt="After Image 8">
     <img src="image13.jpg" alt="After Image 13">
-  <img src="Screenshot_20250828_160912_Instagram.jpg" alt="After Image 13">
-  <img src="Screenshot_20250828_160851_Instagram.jpg" alt="After Screenshot_20250828_160851_Instagram.jpg">
-  <img src="IMG-20250718-WA0043.jpg" alt="After "Screenshot_20250828_160851_Instagram.jpg">
-  <img src="IMG-20250718-WA0047.jpg" alt="After "IMG-20250718-WA0043.jpg">
-  <img src="IMG-20250718-WA0049.jpg" alt="After "IMG-20250718-WA0047.jpg">
-    <img src="IMG-20250913-WA0004.jpg" alt="After "IMG-20250718-WA0047.jpg">
-<img src="IMG-20250913-WA0001.jpg" alt="After IMG-20250913-WA0004.jpg">
- <img src="IMG-20250913-WA0005.jpg" alt="After IMG-20250913-WA0001.jpg">
-  </div>
-
-  <h2> <u><b> Henna </b> </u> </h2>
+    <img src="Screenshot_20250828_160912_Instagram.jpg" alt="After Image 13">
+    <img src="Screenshot_20250828_160851_Instagram.jpg" alt="After Screenshot_20250828_160851_Instagram.jpg">
+    <img src="IMG-20250718-WA0043.jpg" alt="After Screenshot_20250828_160851_Instagram.jpg">
+    <img src="IMG-20250718-WA0047.jpg" alt="After IMG-20250718-WA0043.jpg">
+    <img src="IMG-20250718-WA0049.jpg" alt="After IMG-20250718-WA0047.jpg">
+    <img src="IMG-20250913-WA0004.jpg" alt="After IMG-20250718-WA0047.jpg">
+    <img src="IMG-20250913-WA0001.jpg" alt="After IMG-20250913-WA0004.jpg">
+    <img src="IMG-20250913-WA0005.jpg" alt="After IMG-20250913-WA0001.jpg">
+  </div>  <h2><u><b> Henna </b></u></h2>
   <div class="gallery">
     <img src="image15.jpg" alt="After Image 15">
     <img src="image16.jpg" alt="After Image 16">
     <img src="IMG-20250910-WA0005.jpg" alt="After Image 16">
-  <img src="IMG-20250910-WA0011.jpg" alt="After IMG-20250910-WA0005.jpg">
+    <img src="IMG-20250910-WA0011.jpg" alt="After IMG-20250910-WA0005.jpg">
   </div>
-</main>
-
-
-  <footer>
+</main>  <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
-  </footer>
-
-</body>
+  </footer><script>
+  // Enable autumn theme between Sept 21 and Nov 1
+  const today = new Date();
+  const start = new Date(today.getFullYear(), 8, 21);
+  const end = new Date(today.getFullYear(), 10, 1);
+  if (today >= start && today <= end) {
+    document.body.classList.add('autumn');
+    // Add falling leaves dynamically
+    for (let i = 0; i < 8; i++) {
+      const leaf = document.createElement('div');
+      leaf.classList.add('leaf');
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDelay = Math.random() * 10 + 's';
+      leaf.style.animationDuration = 8 + Math.random() * 5 + 's';
+      document.body.appendChild(leaf);
+    }
+  }
+</script></body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
