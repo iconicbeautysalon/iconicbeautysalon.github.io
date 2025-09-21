@@ -147,7 +147,7 @@
       z-index: 1;
       position: relative;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(255, 165, 0, 0.2); /* TikTok-trendy orange glow */
+      box-shadow: 0 15px 30px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 140, 0, 0.15); /* TikTok-trendy glow */
     }
 
     .center-content h2::after {
@@ -216,30 +216,25 @@
       pointer-events: none;
     }
 
-    .top-left {
-      top: 10px;
-      left: 10px;
-      background: url('pumpkin.png') no-repeat center/contain;
+    .top-left { top: 10px; left: 10px; background: url('pumpkin.png') no-repeat center/contain; filter: drop-shadow(0 0 10px #FF7518); }
+    .top-right { top: 10px; right: 10px; background: url('cobweb.png') no-repeat center/contain; }
+    .bottom-left { bottom: 10px; left: 10px; background: url('cobweb.png') no-repeat center/contain; transform: rotate(180deg); }
+    .bottom-right { bottom: 10px; right: 10px; background: url('pumpkin.png') no-repeat center/contain; filter: drop-shadow(0 0 10px #FF7518); }
+
+    /* 🍁 Static autumn leaves */
+    .autumn-leaf {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('leaf.png') no-repeat center/contain;
+      z-index: 5;
+      opacity: 0.8;
     }
 
-    .top-right {
-      top: 10px;
-      right: 10px;
-      background: url('cobweb.png') no-repeat center/contain;
-    }
-
-    .bottom-left {
-      bottom: 10px;
-      left: 10px;
-      background: url('cobweb.png') no-repeat center/contain;
-      transform: rotate(180deg);
-    }
-
-    .bottom-right {
-      bottom: 10px;
-      right: 10px;
-      background: url('pumpkin.png') no-repeat center/contain;
-    }
+    .leaf1 { top: 20%; left: 10%; transform: rotate(15deg); }
+    .leaf2 { top: 40%; right: 15%; transform: rotate(-25deg); }
+    .leaf3 { bottom: 25%; left: 20%; transform: rotate(35deg); }
+    .leaf4 { bottom: 10%; right: 30%; transform: rotate(-10deg); }
 
   </style>
 </head>
@@ -259,20 +254,16 @@
     <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
   </header>
 
-  <!-- 🌸 Permanent Ladies Only Banner -->
   <div id="ladies-banner">🌸 Ladies Only 🌸</div>
 
-  <!-- Main Content -->
   <main>
     <div class="page-wrapper">
-      <!-- Left Side -->
       <div class="side-panel left-panel">
         <div class="side-image" style="background-image: url('image10.jpg');"></div>
         <div class="side-image" style="background-image: url('image8.jpg');"></div>
         <div class="side-image" style="background-image: url('image16.jpg');"></div>
       </div>
 
-      <!-- Center Content -->
       <div class="center-content">
         <div style="text-align: center;">
           <img src="shopfront.jpg"
@@ -293,20 +284,24 @@
         </div>
       </div>
 
-      <!-- Right Side -->
       <div class="side-panel right-panel">
         <div class="side-image" style="background-image: url('image9.jpg');"></div>
         <div class="side-image" style="background-image: url('image1.jpg');"></div>
         <div class="side-image" style="background-image: url('image6.jpg');"></div>
       </div>
     </div>
+
+    <!-- 🍁 Autumn Leaves -->
+    <div class="autumn-leaf leaf1"></div>
+    <div class="autumn-leaf leaf2"></div>
+    <div class="autumn-leaf leaf3"></div>
+    <div class="autumn-leaf leaf4"></div>
   </main>
 
   <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
 
-  <!-- 🎃 Autumn Decorations -->
   <div class="corner-decoration top-left"></div>
   <div class="corner-decoration top-right"></div>
   <div class="corner-decoration bottom-left"></div>
