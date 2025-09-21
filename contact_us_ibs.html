@@ -3,279 +3,290 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Iconic Beauty Salon - Contact Us </title>
+  <title>Iconic Beauty Salon - Contact Us</title>
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 
   <style>
+    /* ========= Base Style ========= */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding-top: 80px;
       background-color: #222;
-      color: #D6A440; /* goldish */
+      color: #D6A440;
     }
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #D6A440;
-    padding: 1rem 2rem; /* add horizontal padding for flex spacing */
-    
-    /* NEW: flex container for header */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-  }
 
-  /* NEW: container for logo + title on left */
-  .header-right {
-    display: flex;
-    align-items: center;
-  }
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #D6A440;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      z-index: 20;
+    }
 
-  /* Logo inside header */
-  header img {
-    height: 80px;
-    margin-right: 15px; /* changed to horizontal spacing */
-    display: block;
-    padding-left: 110px;
-  }
-  header h1 {
-    margin: 0;
-    white-space: nowrap;
-  }
+    header img {
+      height: 80px;
+      margin-right: 15px;
+      display: block;
+      padding-left: 110px;
+    }
 
-  nav {
-    flex-grow: 1;
-    margin-left: 20px;
-  }
+    header h1 {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    nav {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
 
     nav a {
       margin: 0 15px;
-      color: #D6A440; /* goldish */
+      color: #D6A440;
       text-decoration: none;
-      font-weight: 600; /* makes it bolder */
+      font-weight: 600;
     }
 
-    /* Ensure link styles stay gold */
-    nav a:visited,
-    nav a:hover,
-    nav a:active {
-      color: #D6A440; /* goldish */
+    nav a:hover {
+      color: #b8860b;
+      text-decoration: underline;
     }
 
-  /* NEW: book now button style */
-  .book-now-btn {
-    background-color: #D6A440;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    white-space: nowrap;
-    transition: background-color 0.3s ease;
-  }
+    .book-now-btn {
+      background-color: #D6A440;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: background-color 0.3s ease;
+    }
 
-  .book-now-btn:hover {
-    background-color: #b8860b;
-    color: white;
-  }
+    .book-now-btn:hover {
+      background-color: #b8860b;
+      color: white;
+    }
 
-  main {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #222; /* dark background */
-    font-family: Arial, sans-serif;
-    color: #D6A440; /* goldish */
-  }
-  main h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-   h3 {
-    text-align: center;
-  }
-ul li a {
-  color: #D6A440;       /* your gold color */
-  text-decoration: none; /* removes underline */
-}
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #222;
+      color: #D6A440;
+    }
 
-ul li a:hover {
-  color: #b8860b;       /* darker gold on hover */
-  text-decoration: underline; /* optional */
-}
-.email-list a {
-  color: #D6A440;          /* gold color */
-  text-decoration: none;   /* no underline */
-}
+    main h2 { text-align: center; margin-bottom: 1rem; }
+    h3 { text-align: center; }
 
-.email-list a:hover {
-  color: #b8860b;          /* darker gold on hover */
-  text-decoration: underline;
-}
+    ul li a, .email-list a {
+      color: #D6A440;
+      text-decoration: none;
+    }
 
-  .contact-info {
-    background-color: #222;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-  }
+    ul li a:hover, .email-list a:hover {
+      color: #b8860b;
+      text-decoration: underline;
+    }
 
-  .contact-info p, .contact-info ul {
-    font-size: 1.1rem;
-    line-height: 1.5;
-  }
+    .contact-info {
+      background-color: #222;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
 
-  .contact-info ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-  }
+    .contact-info p, .contact-info ul {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
 
-  .contact-info ul li {
-    margin: 0.5rem 0;
-  }
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
 
-  .map h3 {
-    margin-bottom: 0.5rem;
-  }
+    .contact-info ul li { margin: 0.5rem 0; }
 
-  .map p {
-    text-align: center;
-    margin-top: 0.5rem;
-  }
+    .map h3 { margin-bottom: 0.5rem; }
+    .map p { text-align: center; margin-top: 0.5rem; }
 
-  .map a {
-    color: #D6A440;
-    text-decoration: underline;
-  }
+    .map a {
+      color: #D6A440;
+      text-decoration: underline;
+    }
+    .map a:hover { color: #b8860b; }
 
-  .map a:hover {
-    color: #b8860b; /* darker gold on hover */
-  }
     footer {
       background-color: #333;
       color: white;
-      position: static;
       text-align: center;
       padding: 1rem;
       bottom: 0;
       width: 100%;
     }
 
-/* Optimise mobile view */
+    /* ========= Spooky Theme ========= */
+    body.spooky { background: #000; color: #fff; }
+    header.spooky { background: transparent; color: #ff0050; text-shadow: 0 0 10px #ff0050; }
 
-@media (max-width: 768px) {
-    body {
-    padding-top: 270px; /* adjust if header is taller on mobile */
-  }
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-  }
+    #spooky-hero {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 180px;
+      background: linear-gradient(135deg,#ff0050 0%,#ff8c00 100%);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 15;
+      box-shadow: 0 0 25px #ff0050;
+    }
+    #spooky-hero h2 {
+      font-size: 2rem; margin: 0;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes neonGlow {
+      from { text-shadow: 0 0 10px #ff0050, 0 0 20px #ff8c00; }
+      to   { text-shadow: 0 0 20px #ff0050, 0 0 40px #ff8c00; }
+    }
 
-  .header-left {
-    flex-direction: column;
-    align-items: center;
-  }
+    .floating {
+      position: fixed;
+      font-size: 2rem;
+      animation: floaty 12s linear infinite;
+      pointer-events: none;
+      z-index: 5;
+    }
+    @keyframes floaty {
+      0%   { transform: translateY(100vh) rotate(0deg); opacity:0; }
+      10%  { opacity:1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity:0; }
+    }
 
-  header img {
-    height: 60px;
-    margin-bottom: 0.5rem;
-  }
+    .spooky .book-now-btn {
+      background: #ff0050;
+      color: #fff;
+      box-shadow: 0 0 15px #ff0050;
+    }
+    .spooky nav a { color: #fff; text-shadow: 0 0 8px #ff0050; }
 
-  nav {
-    margin: 1rem 0;
-  }
-
-  nav a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  .book-now-btn {
-    margin-top: 1rem;
-  }
-}
-
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      body { padding-top: 270px; }
+      header { flex-direction: column; align-items: center; text-align: center; }
+      header img { height: 60px; margin-bottom: 0.5rem; padding-left: 0; }
+      nav { margin: 1rem 0; }
+      nav a { display: block; margin: 0.5rem 0; }
+      .book-now-btn { margin-top: 1rem; }
+      #spooky-hero h2 { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
   <header>
-   <div class="header-1">
-    <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
-    <h1>Iconic Beauty Salon</h1>
+    <div class="header-1">
+      <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+      <h1>Iconic Beauty Salon</h1>
     </div>
-   <div class="header-1">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="prices_ibs.html">Prices</a>
-      <a href="contact_us_ibs.html">Contact Us</a>
-      <a href="gallery_ibs.html">Gallery</a>
-    </nav>
+    <div class="header-1">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="prices_ibs.html">Prices</a>
+        <a href="contact_us_ibs.html">Contact Us</a>
+        <a href="gallery_ibs.html">Gallery</a>
+      </nav>
     </div>
     <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
   </header>
 
-<main>
-  <h2><u><b>Contact Us </b></u></h2>
-  
-  <section class="contact-info">
-    <h3>Address</h3>
-    <ul>
-      <li>454 St Albans Road</li>
-      <li>Watford, UK</li>
-      <li>WD24 6PJ</li>
-    </ul>
+  <main>
+    <h2><u><b>Contact Us</b></u></h2>
+    <section class="contact-info">
+      <h3>Address</h3>
+      <ul>
+        <li>454 St Albans Road</li>
+        <li>Watford, UK</li>
+        <li>WD24 6PJ</li>
+      </ul>
 
-    <h3>Opening Times</h3>
-    <ul>
-      <li>Monday - Sunday: 8:30 AM - 7:00 PM</li>
-    </ul>
+      <h3>Opening Times</h3>
+      <ul>
+        <li>Monday - Sunday: 8:30 AM - 7:00 PM</li>
+      </ul>
 
-    <h3>Phone Number</h3>
-    <ul>
-      <li><a href="tel:01923597533">01923 597 533</a></li>
-      <li><a href="tel:07908951424">07908 951 424</a></li>
-      <li><a href="tel:07968245923">07968 245 923</a></li>
-    </ul>
-<h3>Email</h3>
-<ul class="email-list">
-  <li><a href="mailto:iconicbeautysalonltd@gmail.com">iconicbeautysalonltd@gmail.com</a></li>
-</ul>
-  </section>
-  
-  <section class="map">
-    <h3>Find Us Here</h3>
-<div style="text-align: center;">
-<iframe
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2473.998054050763!2d-0.39914232336968936!3d51.67817867185271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766aa407a34ddb%3A0x82c322e75fc52212!2sIconic%20Beauty%20Salon%20Ltd!5e0!3m2!1sen!2suk!4v1747661768587!5m2!1sen!2suk" 
-width: 100% 
-height="450" 
-style="border:0;" 
-allowfullscreen="" 
-loading="lazy" 
-referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-</div>
-    <p><a href="https://goo.gl/maps/your-map-link" target="_blank" rel="noopener">Open in Google Maps</a></p>
-  </section>
-</main>
+      <h3>Phone Number</h3>
+      <ul>
+        <li><a href="tel:01923597533">01923 597 533</a></li>
+        <li><a href="tel:07908951424">07908 951 424</a></li>
+        <li><a href="tel:07968245923">07968 245 923</a></li>
+      </ul>
+
+      <h3>Email</h3>
+      <ul class="email-list">
+        <li><a href="mailto:iconicbeautysalonltd@gmail.com">iconicbeautysalonltd@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <section class="map">
+      <h3>Find Us Here</h3>
+      <div style="text-align: center;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2473.998054050763!2d-0.39914232336968936!3d51.67817867185271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48766aa407a34ddb%3A0x82c322e75fc52212!2sIconic%20Beauty%20Salon%20Ltd!5e0!3m2!1sen!2suk!4v1747661768587!5m2!1sen!2suk" 
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <p><a href="https://goo.gl/maps/your-map-link" target="_blank" rel="noopener">Open in Google Maps</a></p>
+    </section>
+  </main>
 
   <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
 
+  <script>
+  (function(){
+    const today = new Date();
+    const y = today.getFullYear();
+    const start = new Date(y, 8, 1);  // Sept 1
+    const end   = new Date(y,10,1);   // Nov 1
+
+    if (today >= start && today < end) {
+      document.body.classList.add('spooky');
+      document.querySelector('header').classList.add('spooky');
+
+      // Hero banner
+      const hero = document.createElement('div');
+      hero.id = 'spooky-hero';
+      hero.innerHTML = '<h2>🎃 Spooky Season Specials 🎃</h2>';
+      document.body.appendChild(hero);
+
+      // Floating emojis
+      const icons = ['🦇','🎃','👻','🕷️'];
+      for(let i=0;i<15;i++){
+        const span = document.createElement('span');
+        span.className = 'floating';
+        span.textContent = icons[Math.floor(Math.random()*icons.length)];
+        span.style.left = Math.random()*100 + 'vw';
+        span.style.animationDuration = (8 + Math.random()*8) + 's';
+        span.style.fontSize = (1 + Math.random()*2) + 'rem';
+        document.body.appendChild(span);
+      }
+    }
+  })();
+  </script>
 </body>
 </html>
-
