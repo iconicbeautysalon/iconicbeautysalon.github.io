@@ -16,6 +16,7 @@
       padding: 0;
       background-color: #222;
       color: #B8860B;
+      position: relative; /* needed for corner decorations */
     }
 
     header {
@@ -33,7 +34,6 @@
       box-sizing: border-box;
     }
 
-    /* 🌸 Permanent Ladies Only Banner */
     #ladies-banner {
       background: #D6A440;
       color: #222;
@@ -46,26 +46,6 @@
       left: 0;
       width: 100%;
       z-index: 9;
-    }
-
-    /* 🔔 Seasonal Autumn Banner */
-    #booking-banner {
-      display: none;
-      background: #FF7518; /* Pumpkin Orange */
-      color: #fff;
-      text-align: center;
-      padding: 12px;
-      font-size: 18px;
-      font-weight: bold;
-      position: fixed;
-      top: 135px;   
-      left: 0;
-      width: 100%;
-      z-index: 9;
-      border-left: 8px solid #D6A440;
-      border-right: 8px solid #D6A440;
-      border-radius: 5px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     .header-left {
@@ -115,7 +95,7 @@
     }
 
     main {
-      margin-top: 200px; /* Adjusted for header + both banners */
+      margin-top: 200px; 
     }
 
     .page-wrapper {
@@ -137,14 +117,8 @@
     }
 
     @keyframes fadeSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .side-image {
@@ -173,9 +147,9 @@
       z-index: 1;
       position: relative;
       text-align: center;
+      box-shadow: 0 10px 25px rgba(255, 165, 0, 0.2); /* TikTok-trendy orange glow */
     }
 
-    /* Autumn Accent */
     .center-content h2::after {
       content: " 🎃🍂";
     }
@@ -194,13 +168,14 @@
       text-decoration: none;
       color: #333;
       background-color: #D6A440;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     .social-btn:hover {
       background-color: #b8860b;
       color: white;
+      transform: scale(1.05);
     }
 
     .social-btn.facebook { background-color: #3b5998; color: white; }
@@ -211,9 +186,9 @@
       color: white;
     }
 
-    .social-btn.instagram:hover { opacity: 0.85; }
+    .social-btn.instagram:hover { opacity: 0.85; transform: scale(1.05); }
     .social-btn.tiktok { background-color: white; color: black; }
-    .social-btn.tiktok:hover { background-color: #f5f5f5; }
+    .social-btn.tiktok:hover { background-color: #f5f5f5; transform: scale(1.05); }
 
     footer {
       background-color: #333;
@@ -231,6 +206,41 @@
       nav a { display: block; margin: 0.5rem 0; }
       .book-now-btn { margin-top: 1rem; }
     }
+
+    /* 🎃 Autumn corner decorations */
+    .corner-decoration {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      z-index: 15;
+      pointer-events: none;
+    }
+
+    .top-left {
+      top: 10px;
+      left: 10px;
+      background: url('pumpkin.png') no-repeat center/contain;
+    }
+
+    .top-right {
+      top: 10px;
+      right: 10px;
+      background: url('cobweb.png') no-repeat center/contain;
+    }
+
+    .bottom-left {
+      bottom: 10px;
+      left: 10px;
+      background: url('cobweb.png') no-repeat center/contain;
+      transform: rotate(180deg);
+    }
+
+    .bottom-right {
+      bottom: 10px;
+      right: 10px;
+      background: url('pumpkin.png') no-repeat center/contain;
+    }
+
   </style>
 </head>
 
@@ -252,11 +262,7 @@
   <!-- 🌸 Permanent Ladies Only Banner -->
   <div id="ladies-banner">🌸 Ladies Only 🌸</div>
 
-  <!-- 🔔 Seasonal Autumn Banner -->
-  <div id="booking-banner">
-    🎃 Fall into Beauty! Book your autumn treatments today! 🍁
-  </div>
-
+  <!-- Main Content -->
   <main>
     <div class="page-wrapper">
       <!-- Left Side -->
@@ -300,18 +306,11 @@
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
 
-  <!-- 🔔 Banner Date Logic -->
-  <script>
-    (function() {
-      const today = new Date();
-      const banner = document.getElementById("booking-banner");
-      const endDate = new Date(today.getFullYear(), 10, 1); // November 1st
+  <!-- 🎃 Autumn Decorations -->
+  <div class="corner-decoration top-left"></div>
+  <div class="corner-decoration top-right"></div>
+  <div class="corner-decoration bottom-left"></div>
+  <div class="corner-decoration bottom-right"></div>
 
-      // Show banner from today until November 1st
-      if (today <= endDate) {
-        banner.style.display = "block";
-      }
-    })();
-  </script>
 </body>
 </html>
