@@ -1,181 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Iconic Beauty Salon - Booking </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iconic Beauty Salon – Booking</title>
+
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding-top: 80px;
-    background-color: #222;
-    color: #D6A440; /* goldish */
-  }
+    /* ===== Base Styles (your original look) ===== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding-top: 80px;
+      background-color: #222;
+      color: #D6A440;
+      overflow-x: hidden;
+    }
 
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #D6A440;
-    padding: 1rem 2rem; /* add horizontal padding for flex spacing */
-    
-    /* NEW: flex container for header */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-  }
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #D6A440;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      z-index: 20;
+    }
 
-  /* NEW: container for logo + title on left */
-  .header-right {
-    display: flex;
-    align-items: center;
-  }
+    .header-left { display: flex; align-items: center; }
+    .header-left img {
+      height: 80px;
+      margin-right: 15px;
+      padding-left: 110px;
+    }
+    .header-left h1 { margin: 0; white-space: nowrap; }
 
-  /* Logo inside header */
-  header img {
-    height: 80px;
-    margin-right: 15px; /* changed to horizontal spacing */
-    display: block;
-    padding-left: 110px;
-  }
+    nav a {
+      margin: 0 15px;
+      color: #D6A440;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover { text-decoration: underline; }
 
-  header h1 {
-    margin: 0;
-    white-space: nowrap;
-  }
+    .book-now-btn {
+      background-color: #D6A440;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+    .book-now-btn:hover {
+      background-color: #b8860b;
+      color: #fff;
+    }
 
-  nav {
-    flex-grow: 1;
-    margin-left: 20px;
-  }
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #222;
+      color: #D6A440;
+      border-radius: 8px;
+      position: relative;
+      z-index: 10;
+    }
 
-  nav a {
-    margin: 0 15px;
-    color: #D6A440;
-    text-decoration: none;
-    font-weight: 600;
-  }
+    main h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
 
-  nav a:hover {
-    text-decoration: underline;
-  }
-
-  /* NEW: book now button style */
-  .book-now-btn {
-    background-color: #D6A440;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    white-space: nowrap;
-    transition: background-color 0.3s ease;
-  }
-
-  .book-now-btn:hover {
-    background-color: #b8860b;
-    color: white;
-  }
-
-  main {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: #222; /* dark background */
-    color: #D6A440;
-    border-radius: 8px;
-  }
-
-  main h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
     footer {
       background-color: #333;
       color: white;
-      position: static;
       text-align: center;
       padding: 1rem;
-      bottom: 0;
-      width: 100%;
+      margin-top: 2rem;
+      z-index: 10;
+      position: relative;
     }
 
-/* Optimise mobile view */
+    /* ===== Mobile adjustments ===== */
+    @media (max-width: 768px) {
+      body { padding-top: 270px; }
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .header-left {
+        flex-direction: column;
+        align-items: center;
+      }
+      .header-left img {
+        height: 60px;
+        padding-left: 0;
+        margin-bottom: 0.5rem;
+      }
+      nav { margin: 1rem 0; }
+      nav a { display: block; margin: 0.5rem 0; }
+      .book-now-btn { margin-top: 1rem; }
+    }
 
-@media (max-width: 768px) {
-    body {
-    padding-top: 270px; /* adjust if header is taller on mobile */
-  }
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-  }
+    /* ===== Spooky Seasonal Overlay ===== */
+    #spooky-hero {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 200px;
+      background: radial-gradient(circle, #ff0050 0%, #000 80%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 15;
+      overflow: hidden;
+    }
+    #spooky-hero h2 {
+      margin: 0;
+      font-size: 3rem;
+      text-transform: uppercase;
+      color: transparent;
+      background: linear-gradient(90deg,#ff8c00,#ff0050,#ff8c00);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: colorShift 4s linear infinite, glitch 1.2s infinite;
+      text-shadow: 0 0 15px #ff0050;
+    }
+    #spooky-hero p {
+      margin: 0;
+      color: #ff8c00;
+      font-size: 1.1rem;
+      animation: fadePulse 2s ease-in-out infinite;
+    }
 
-  .header-left {
-    flex-direction: column;
-    align-items: center;
-  }
+    @keyframes colorShift {
+      0% { background-position: 0% center; }
+      100% { background-position: 300% center; }
+    }
+    @keyframes glitch {
+      0%,100% { text-shadow: 2px 0 #ff0050,-2px -2px #ff8c00; }
+      50%    { text-shadow: -2px 2px #ff8c00,2px -2px #ff0050; }
+    }
+    @keyframes fadePulse {
+      0%,100% { opacity: 0.7; }
+      50%     { opacity: 1; }
+    }
 
-  header img {
-    height: 60px;
-    margin-bottom: 0.5rem;
-  }
-
-  nav {
-    margin: 1rem 0;
-  }
-
-  nav a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  .book-now-btn {
-    margin-top: 1rem;
-  }
-}
-
+    .floating {
+      position: fixed;
+      font-size: 2rem;
+      animation: floaty 14s linear infinite;
+      pointer-events: none;
+      z-index: 5;
+    }
+    @keyframes floaty {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
+
 <body>
   <header>
-   <div class="header-1">
-    <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
-    <h1>Iconic Beauty Salon</h1>
+    <div class="header-left">
+      <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+      <h1>Iconic Beauty Salon</h1>
     </div>
-   <div class="header-1">
+
     <nav>
       <a href="index.html">Home</a>
       <a href="prices_ibs.html">Prices</a>
       <a href="contact_us_ibs.html">Contact Us</a>
       <a href="gallery_ibs.html">Gallery</a>
     </nav>
-    </div>
+
     <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
   </header>
 
-<main>
-  <h2 style="text-align: center;">Book Your Appointment</h2>
-<div style="background-color: white; padding: 20px; border-radius: 10px;">
-<iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2tRJFXiYtfNbCgsiF_vpeUWZLaXUAYwPvpf5hCaot_M90wgqQEi_Q5gGCXyvlv182vvhz4LvNq?gv=true" 
-style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-</div>
-</main>
+  <!-- Seasonal hero overlay (appears only Sept–Oct) -->
+  <div id="spooky-hero" style="display:none;">
+    <h2>👻 Spooky Season 🎃</h2>
+    <p>Book a glam… if you dare!</p>
+  </div>
+
+  <main>
+    <h2>Book Your Appointment</h2>
+    <div style="background-color: white; padding: 20px; border-radius: 10px;">
+      <iframe
+        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2tRJFXiYtfNbCgsiF_vpeUWZLaXUAYwPvpf5hCaot_M90wgqQEi_Q5gGCXyvlv182vvhz4LvNq?gv=true"
+        style="border:0" width="100%" height="600" frameborder="0">
+      </iframe>
+    </div>
+  </main>
 
   <footer>
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
 
+  <script>
+    (function() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const start = new Date(y, 8, 1);  // Sept 1
+      const end   = new Date(y,10, 1);  // Nov 1
+      if (now >= start && now < end) {
+        document.getElementById('spooky-hero').style.display = 'flex';
+
+        const icons = ['🦇','🎃','👻','🕷️','💀','🩸','🕸️'];
+        for (let i = 0; i < 25; i++) {
+          const s = document.createElement('span');
+          s.className = 'floating';
+          s.textContent = icons[Math.floor(Math.random() * icons.length)];
+          s.style.left = Math.random() * 100 + 'vw';
+          s.style.animationDuration = (6 + Math.random() * 10) + 's';
+          s.style.fontSize = (1 + Math.random() * 2.5) + 'rem';
+          document.body.appendChild(s);
+        }
+
+        // quick flash jump scare on tap
+        document.getElementById('spooky-hero').addEventListener('click', () => {
+          document.body.style.backgroundColor = '#ff0050';
+          setTimeout(() => document.body.style.backgroundColor = '#222', 150);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
