@@ -1,226 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Iconic Beauty Salon – Spooky Season</title>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-<link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iconic Beauty Salon - Home</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 
-<style>
-/* ========= Base Style ========= */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #111;
-  color: #B8860B;
-  overflow-x: hidden;
-}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #222;
+      color: #B8860B;
+    }
 
-header {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  background: #222;
-  color: #D6A440;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 20;
-}
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #D6A440;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      box-sizing: border-box;
+    }
 
-.header-left { display: flex; align-items: center; }
-.header-left img { height: 80px; margin-right: 15px; }
-.header-left h1 { margin: 0; font-size: 2rem; white-space: nowrap; }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
 
-nav a {
-  margin: 0 10px;
-  color: #D6A440;
-  text-decoration: none;
-  font-weight: 600;
-}
-nav a:hover { text-decoration: underline; }
+    .header-left img {
+      height: 80px;
+      margin-right: 15px;
+    }
 
-.book-now-btn {
-  background-color: #D6A440;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  white-space: nowrap;
-}
-.book-now-btn:hover { background-color: #b8860b; color: #fff; }
+    .header-left h1 {
+      margin: 0;
+      font-size: 2rem;
+      white-space: nowrap;
+    }
 
-main { margin-top: 220px; }
+    nav {
+      margin-left: 2rem;
+    }
 
-/* Panels & content */
-.page-wrapper { display: flex; min-height: calc(100vh - 130px); }
-.side-panel { flex: 1; display: flex; flex-direction: column; }
-.side-image {
-  flex: 1; background-size: cover; background-position: center; background-repeat: no-repeat;
-  opacity: 0; animation: fadeSlideIn 1s ease forwards;
-}
-@keyframes fadeSlideIn {
-  from {opacity:0; transform: translateY(30px);}
-  to   {opacity:1; transform: translateY(0);}
-}
-.left-panel .side-image:nth-child(1){animation-delay:0.2s;}
-.left-panel .side-image:nth-child(2){animation-delay:0.4s;}
-.left-panel .side-image:nth-child(3){animation-delay:0.6s;}
-.right-panel .side-image:nth-child(1){animation-delay:0.8s;}
-.right-panel .side-image:nth-child(2){animation-delay:1s;}
-.right-panel .side-image:nth-child(3){animation-delay:1.2s;}
+    nav a {
+      margin: 0 10px;
+      color: #D6A440;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-.center-content {
-  max-width: 700px;
-  width: 100%;
-  padding: 2rem 1rem 4rem;
-  background-color: #222;
-  color: #D6A440;
-  border-radius: 12px;
-  z-index: 1;
-  text-align: center;
-  position: relative;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-.social-buttons { margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; }
-.social-btn {
-  padding: 0.6rem 1.6rem;
-  border-radius: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-  transition: transform .2s ease, box-shadow .2s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,.4);
-}
-.social-btn:hover { transform: scale(1.05); }
+    .book-now-btn {
+      background-color: #D6A440;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-.social-btn.facebook { background: #3b5998; }
-.social-btn.instagram {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-.social-btn.tiktok {
-  background: #000;
-  border: 2px solid #ff0050;
-  box-shadow: 0 0 10px #ff0050;
-}
+    .book-now-btn:hover {
+      background-color: #b8860b;
+      color: white;
+      transform: translateY(-2px);
+    }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
+    main {
+      margin-top: 130px;
+    }
 
-/* ========= Spooky Season TikTok Vibes ========= */
-body.spooky {
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
+    .page-wrapper {
+      display: flex;
+      min-height: calc(100vh - 130px);
+    }
 
-header.spooky {
-  background: transparent;
-  color: #ff0050;
-  text-shadow: 0 0 10px #ff0050;
-}
+    .side-panel {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8);
+      transition: filter 0.3s ease, box-shadow 0.3s ease;
+    }
 
-/* giant top hero section */
-#spooky-hero {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 180px;
-  background: linear-gradient(135deg,#ff0050 0%,#ff8c00 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 15;
-  box-shadow: 0 0 25px #ff0050;
-}
-#spooky-hero h2 {
-  font-size: 3rem;
-  margin: 0;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  animation: neonGlow 1.5s ease-in-out infinite alternate;
-}
-@keyframes neonGlow {
-  from { text-shadow: 0 0 10px #ff0050, 0 0 20px #ff8c00; }
-  to   { text-shadow: 0 0 20px #ff0050, 0 0 40px #ff8c00; }
-}
+    .side-panel:hover {
+      filter: brightness(1);
+      box-shadow: 0 0 20px #D6A440;
+    }
 
-/* floating pumpkins/bats */
-.floating {
-  position: fixed;
-  font-size: 2rem;
-  animation: floaty 12s linear infinite;
-  pointer-events: none;
-  z-index: 5;
-}
-@keyframes floaty {
-  0%   { transform: translateY(100vh) rotate(0deg); opacity:0; }
-  10%  { opacity:1; }
-  100% { transform: translateY(-120vh) rotate(360deg); opacity:0; }
-}
+    .left-panel {
+      background-image: url('IBS.jpg');
+    }
 
-/* make buttons neon */
-.spooky .book-now-btn {
-  background: #ff0050;
-  color: #fff;
-  box-shadow: 0 0 15px #ff0050;
-}
-.spooky nav a { color: #fff; text-shadow: 0 0 8px #ff0050; }
+    .right-panel {
+      background-image: url('IBS.jpg');
+    }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  #spooky-hero h2 { font-size: 2rem; }
-  header { flex-direction: column; }
-  nav a { display: block; margin: 0.5rem 0; }
-}
-</style>
+    .center-content {
+      max-width: 700px;
+      width: 100%;
+      padding: 2rem 1rem 4rem;
+      background-color: #222;
+      color: #D6A440;
+      border-radius: 8px;
+      z-index: 1;
+      position: relative;
+      text-align: center;
+    }
+
+    .center-content img {
+      width: 100%;
+      max-width: 700px;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(214, 164, 64, 0.4);
+    }
+
+    .social-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-btn {
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+      background-color: #D6A440;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px #b8860b;
+    }
+
+    .social-btn.facebook {
+      background-color: #3b5998;
+      color: white;
+    }
+
+    .social-btn.facebook:hover {
+      background-color: #2d4373;
+    }
+
+    .social-btn.instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      color: white;
+    }
+
+    .social-btn.instagram:hover {
+      opacity: 0.85;
+    }
+
+    .social-btn.tiktok {
+      background-color: white;
+      color: black;
+    }
+
+    .social-btn.tiktok:hover {
+      background-color: #f5f5f5;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-wrapper {
+        flex-direction: column;
+      }
+
+      .side-panel {
+        display: none;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-left {
+        flex-direction: column;
+      }
+
+      .header-left img {
+        height: 60px;
+        margin-bottom: 0.5rem;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .book-now-btn {
+        margin-top: 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-  <div class="header-left">
-    <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
-    <h1>Iconic Beauty Salon</h1>
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="prices_ibs.html">Prices</a>
-    <a href="contact_us_ibs.html">Contact Us</a>
-    <a href="gallery_ibs.html">Gallery</a>
-  </nav>
-  <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
-</header>
-
-<main>
-  <div class="page-wrapper">
-    <div class="side-panel left-panel">
-      <div class="side-image" style="background-image: url('IMG-20250829-WA0011(1).jpg');"></div>
-      <div class="side-image" style="background-image: url('Screenshot_20250828_160912_Instagram.jpg');"></div>
-      <div class="side-image" style="background-image: url('IMG-20250910-WA0005.jpg');"></div>
+  <header>
+    <div class="header-left">
+      <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+      <h1>Iconic Beauty Salon</h1>
     </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="prices_ibs.html">Prices</a>
+      <a href="contact_us_ibs.html">Contact Us</a>
+      <a href="gallery_ibs.html">Gallery</a>
+    </nav>
+    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
+  </header>
 
-    <div class="center-content">
-      <img src="shopfront.jpg" alt="Iconic Beauty Salon Storefront"
-           style="width:100%; max-width:700px; max-height:400px; object-fit:cover; border-radius:12px;">
-      <h2><b>Transform yourself into a Beauty Icon.</b></h2>
-      <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
-      <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
-      <p>Whether you're looking for a relaxing facial, a stylish haircut, or a complete makeover, we provide personalised care in a welcoming environment.</p>
-      <p>Book your appointment today and experience the iconic difference.</p>
-      <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
+  <main>
+    <div class="page-wrapper">
+      <div class="side-panel left-panel"></div>
 
-      <div class="social-buttons">
-        <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook">Facebook</a>
-        <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram">Instagram</a>
-        <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok">TikTok</a>
+      <div class="center-content">
+        <div style="text-align: center;">
+          <img src="shopfront.jpg" alt="Iconic Beauty Salon Storefront">
+        </div>
+        <h2><b>Transform yourself into a Beauty Icon.</b></h2>
+        <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
+        <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
+        <p>Whether you're looking for a relaxing facial, a stylish haircut, or a complete makeover, we provide personalised care in a welcoming environment.</p>
+        <p>Book your appointment today and experience the iconic difference.</p>
+        <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
+
+        <div class="social-buttons">
+          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook" aria-label="Facebook">Facebook</a>
+          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram" aria-label="Instagram">Instagram</a>
+          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
+        </div>
       </div>
+
+      <div class="side-panel right-panel"></div>
     </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
+  </footer>
+</body>
+</html>
