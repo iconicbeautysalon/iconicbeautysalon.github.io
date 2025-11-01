@@ -90,26 +90,32 @@
       min-height: calc(100vh - 130px);
     }
 
+    /* GALLERY PANELS */
     .side-panel {
       flex: 1;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: brightness(0.8);
-      transition: filter 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 1rem;
+      background-color: #111;
+      box-sizing: border-box;
+      gap: 1rem;
     }
 
-    .side-panel:hover {
-      filter: brightness(1);
-      box-shadow: 0 0 20px #D6A440;
+    .side-panel img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #D6A440;
+      box-shadow: 0 0 20px rgba(214, 164, 64, 0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .left-panel {
-      background-image: url('IBS.jpg');
-    }
-
-    .right-panel {
-      background-image: url('IBS.jpg');
+    .side-panel img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(214, 164, 64, 0.9);
     }
 
     .center-content {
@@ -193,10 +199,18 @@
     @media (max-width: 768px) {
       .page-wrapper {
         flex-direction: column;
+        align-items: center;
       }
 
       .side-panel {
-        display: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .side-panel img {
+        max-width: 45%;
+        margin: 5px;
       }
 
       header {
@@ -243,8 +257,14 @@
 
   <main>
     <div class="page-wrapper">
-      <div class="side-panel left-panel"></div>
+      <!-- Left gallery -->
+      <div class="side-panel left-panel">
+        <img src="IMG-20250829-WA0011(1).jpg" alt="Salon Look 1">
+        <img src="Screenshot_20250828_160851_Instagram.jpg" alt="Salon Look 2">
+        <img src="Screenshot_20250828_160912_Instagram.jpg" alt="Salon Look 3">
+      </div>
 
+      <!-- Main content -->
       <div class="center-content">
         <div style="text-align: center;">
           <img src="shopfront.jpg" alt="Iconic Beauty Salon Storefront">
@@ -263,7 +283,12 @@
         </div>
       </div>
 
-      <div class="side-panel right-panel"></div>
+      <!-- Right gallery -->
+      <div class="side-panel right-panel">
+        <img src="IMG-20250910-WA0005.jpg" alt="Salon Look 4">
+        <img src="IMG-20250718-WA0043.jpg" alt="Salon Look 5">
+        <img src="IMG-20250513-WA0011.jpg" alt="Salon Look 6">
+      </div>
     </div>
   </main>
 
