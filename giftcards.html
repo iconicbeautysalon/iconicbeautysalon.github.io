@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gift Cards 🎁 | Iconic Beauty Salon</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #222, #333);
+      color: #D6A440;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: #D6A440;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      box-sizing: border-box;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left img {
+      height: 70px;
+      margin-right: 15px;
+    }
+
+    .header-left h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      white-space: nowrap;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #D6A440;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .book-now-btn {
+      background-color: #D6A440;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .book-now-btn:hover {
+      background-color: #b8860b;
+      color: white;
+    }
+
+    main {
+      margin-top: 130px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 1rem;
+      min-height: calc(100vh - 130px);
+      background-image: url('IMG-20250910-WA0005.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .gift-card-container {
+      background: rgba(34, 34, 34, 0.9);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4),
+                  0 0 35px rgba(0, 255, 0, 0.4),
+                  0 0 45px rgba(0, 0, 255, 0.4);
+      animation: glowPulse 3s infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.4),
+                    0 0 35px rgba(0, 255, 0, 0.4),
+                    0 0 45px rgba(0, 0, 255, 0.4);
+      }
+      100% {
+        box-shadow: 0 0 25px rgba(255, 255, 0, 0.6),
+                    0 0 35px rgba(255, 0, 255, 0.6),
+                    0 0 45px rgba(0, 255, 255, 0.6);
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #FFD700;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    input, textarea, select {
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00);
+      background-size: 400% 400%;
+      animation: gradientShift 4s infinite;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      .gift-card-container {
+        width: 90%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+      <h1>Iconic Beauty Salon</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="prices_ibs.html">Prices</a>
+      <a href="contact_us_ibs.html">Contact Us</a>
+      <a href="gallery_ibs.html">Gallery</a>
+      <a href="giftcards.html"><strong>Gift Cards 🎁</strong></a>
+    </nav>
+    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
+  </header>
+
+  <main>
+    <div class="gift-card-container">
+      <h2>Give the Gift of Iconic Beauty 🎄✨</h2>
+      <p>Delight your loved ones this festive season with an <b>Iconic Beauty Salon</b> gift card — a perfect way to say <i>“You’re Iconic!”</i></p>
+      <p>Fill in the form below, and our team will contact you to finalise your digital gift card. 🎁</p>
+
+      <form action="https://formsubmit.co/iconicbeautysalonltd@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Gift Card Request - Iconic Beauty Salon">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <input type="text" name="sender_name" placeholder="Your Name" required>
+        <input type="email" name="sender_email" placeholder="Your Email" required>
+        <input type="text" name="recipient_name" placeholder="Recipient's Name" required>
+        <input type="email" name="recipient_email" placeholder="Recipient's Email" required>
+
+        <select name="amount" required>
+          <option value="">Select Gift Card Amount</option>
+          <option value="£20">£20</option>
+          <option value="£40">£40</option>
+          <option value="£60">£60</option>
+          <option value="£100">£100</option>
+        </select>
+
+        <textarea name="message" placeholder="Add a personal message..." required></textarea>
+
+        <button type="submit">Send Gift Card Request 💌</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
+  </footer>
+</body>
+    </html>
