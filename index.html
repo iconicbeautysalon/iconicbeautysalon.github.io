@@ -1,307 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Iconic Beauty Salon - Home</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
-  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+  <title>Iconic Beauty Salon - Home (Festive)</title>
 
+  <!-- ====== Styles ====== -->
   <style>
-    /* --- GENERAL STYLING --- */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #222;
-      color: #D6A440;
-      overflow-x: hidden;
+    /* Base */
+    :root{
+      --gold:#D6A440;
+      --bg:#222;
+      --center-bg: rgba(34,34,34,0.95);
+    }
+    html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--gold);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+
+    /* Header */
+    header{
+      position:fixed;top:0;left:0;width:100%;z-index:1200;
+      background:rgba(34,34,34,0.86);
+      display:flex;align-items:center;justify-content:space-between;padding:14px 18px;box-sizing:border-box;
+      backdrop-filter:blur(4px);border-bottom:1px solid rgba(255,255,255,0.03)
+    }
+    .header-left{display:flex;align-items:center;gap:12px}
+    .header-left img{height:68px;border-radius:50%;box-shadow:0 0 12px rgba(0,0,0,0.6)}
+    .header-left h1{margin:0;font-size:1.5rem;white-space:nowrap}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--gold);font-weight:600;text-decoration:none;padding:6px 0}
+    .book-now-btn{
+      background:linear-gradient(90deg,var(--gold),#fff3cd);
+      color:#222;padding:10px 18px;border-radius:24px;font-weight:700;text-decoration:none;
+      box-shadow:0 6px 18px rgba(214,164,64,0.18);transition:transform .18s ease,box-shadow .2s ease
+    }
+    .book-now-btn:active,.book-now-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(214,164,64,0.28)}
+
+    /* Festive toggle (small button) */
+    .festive-toggle{
+      position:fixed;right:14px;top:86px;z-index:1300;background:linear-gradient(90deg,#ff6161,#ffd166,#61ff9b,#8ad0ff);
+      padding:6px 10px;border-radius:20px;color:#111;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.25);font-size:0.85rem;
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(51, 51, 51, 0.9);
-      color: #D6A440;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-      backdrop-filter: blur(5px);
+    /* Page layout */
+    main{margin-top:110px;padding:18px}
+    .page-wrapper{display:flex;gap:18px;align-items:stretch;min-height:calc(100vh - 140px)}
+    .side-panel{width:22%;min-width:180px;display:flex;flex-direction:column;gap:12px;align-items:stretch;box-sizing:border-box;padding:6px}
+    .center-content{flex:1;max-width:760px;margin:auto;background:var(--center-bg);padding:22px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.6);text-align:center}
+
+    /* Image cards (side) */
+    .img-card{
+      width:100%;height:0;padding-bottom:66%;position:relative;border-radius:12px;overflow:hidden;
+      box-shadow:0 0 16px rgba(0,0,0,0.6);
+      border:3px solid rgba(255,255,255,0.04);
+      transition:transform .35s ease,box-shadow .35s ease;
+      background:#111;
+    }
+    .img-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Multicolour glow overlay */
+    .img-card::after{
+      content:"";position:absolute;inset:0;border-radius:12px;pointer-events:none;
+      box-shadow:0 0 16px rgba(255,255,255,0.04), 0 0 30px rgba(0,0,0,0.45);
+      transition:box-shadow .35s ease, transform .35s ease;
+      mix-blend-mode:screen;opacity:0.9;
+      background:linear-gradient(120deg, rgba(255,0,0,0.10), rgba(0,255,0,0.08), rgba(255,215,0,0.08), rgba(255,255,255,0.02));
+      background-size:400% 400%;
+      animation: rainbowFlow 6s linear infinite;
     }
 
-    .header-left {
-      display: flex;
-      align-items: center;
+    @keyframes rainbowFlow{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
-    .header-left img {
-      height: 80px;
-      margin-right: 15px;
+    .img-card:hover{transform:scale(1.02);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+    .img-card:hover::after{box-shadow:0 0 45px rgba(255,255,255,0.08),0 0 60px rgba(255,215,0,0.22)}
+
+    /* Center hero image and text */
+    .center-content-img{width:100%;height:auto;border-radius:10px;max-height:420px;object-fit:cover;box-shadow:0 0 28px rgba(255,255,255,0.04)}
+    h2{margin:.8rem 0;color:#fff3d6;font-size:1.6rem}
+    p{color:#e6d1a3;line-height:1.6;margin:0.6rem 0}
+
+    /* Top twinkling lights */
+    .lights-wrap{position:absolute;left:0;right:0;top:-6px;height:36px;pointer-events:none;z-index:1150}
+    .string{display:flex;justify-content:center;gap:8px;align-items:center;height:100%}
+    .bulb{width:10px;height:10px;border-radius:50%;box-shadow:0 0 10px rgba(0,0,0,0.45)}
+    .b-red{background:#ff4d4d;box-shadow:0 0 14px rgba(255,77,77,0.7); animation:blink 1.8s infinite;}
+    .b-green{background:#4cff7a;box-shadow:0 0 14px rgba(76,255,122,0.6); animation:blink 2s .2s infinite;}
+    .b-gold{background:#ffd700;box-shadow:0 0 16px rgba(255,215,0,0.75); animation:blink 1.6s .4s infinite;}
+    .b-white{background:#fff;box-shadow:0 0 12px rgba(255,255,255,0.85); animation:blink 1.4s .6s infinite}
+
+    @keyframes blink{
+      0%,100%{opacity:0.25;transform:translateY(0)}
+      50%{opacity:1;transform:translateY(-3px)}
     }
 
-    .header-left h1 {
-      margin: 0;
-      font-size: 2rem;
-      white-space: nowrap;
+    /* Snowflakes */
+    .snowflake{position:fixed;top:-30px;z-index:1090;font-size:12px;pointer-events:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,0.35))}
+    @keyframes fall{to{transform:translateY(120vh) rotate(360deg);opacity:0.85}}
+
+    /* Footer */
+    footer{background:#2b2b2b;color:#ddd;padding:12px;text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* Responsive: keep Book Now visible and images show on mobile */
+    @media (max-width:1000px){
+      .page-wrapper{flex-direction:column;align-items:stretch}
+      .side-panel{width:100%;flex-direction:row;padding:8px;gap:8px;order:2}
+      .center-content{order:1;margin:0 8px}
+      .img-card{flex:1;height:160px;padding-bottom:0}
+      .img-card img{border-radius:10px}
     }
-
-    nav {
-      margin-left: 2rem;
-    }
-
-    nav a {
-      margin: 0 10px;
-      color: #D6A440;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .book-now-btn {
-      background-color: #D6A440;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      white-space: nowrap;
-      transition: 0.3s ease;
-    }
-
-    .book-now-btn:hover {
-      background-color: #b8860b;
-      color: white;
-    }
-
-    main {
-      margin-top: 130px;
-    }
-
-    .page-wrapper {
-      display: flex;
-      min-height: calc(100vh - 130px);
-    }
-
-    /* --- SIDE IMAGE PANELS --- */
-    .side-panel {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 10px;
-      box-sizing: border-box;
-    }
-
-    .side-panel img {
-      width: 100%;
-      height: 32%;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      animation: festiveGlow 3s infinite alternate;
-    }
-
-    .side-panel img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
-    }
-
-    @keyframes festiveGlow {
-      0% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); }
-      50% { box-shadow: 0 0 25px rgba(0, 255, 0, 0.6); }
-      100% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8); }
-    }
-
-    /* --- CENTER CONTENT --- */
-    .center-content {
-      max-width: 700px;
-      width: 100%;
-      padding: 2rem 1rem 4rem;
-      background-color: #222;
-      color: #D6A440;
-      border-radius: 8px;
-      z-index: 1;
-      position: relative;
-      text-align: center;
-    }
-
-    .center-content img {
-      width: 100%;
-      max-width: 700px;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      color: #FFD700;
-    }
-
-    .social-buttons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .social-btn {
-      padding: 0.5rem 1.5rem;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
-      background-color: #D6A440;
-      transition: transform 0.2s ease;
-    }
-
-    .social-btn:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    /* --- SNOW EFFECT --- */
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: white;
-      font-size: 1em;
-      user-select: none;
-      pointer-events: none;
-      animation: fall linear infinite;
-      z-index: 20;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0.7; }
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1rem;
-      }
-
-      .header-left {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .header-left img {
-        height: 60px;
-        margin-bottom: 0.5rem;
-      }
-
-      nav {
-        margin: 0.5rem 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 0;
-        font-size: 1rem;
-      }
-
-      .book-now-btn {
-        display: inline-block;
-        margin-top: 0.75rem;
-        background-color: #D6A440;
-        color: #222;
-        padding: 10px 24px;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .book-now-btn:hover {
-        background-color: #b8860b;
-        color: white;
-      }
-
-      .page-wrapper {
-        flex-direction: column;
-      }
-
-      .side-panel {
-        display: none;
-      }
+    @media (max-width:540px){
+      .header-left img{height:56px}
+      .header-left h1{font-size:1.05rem}
+      .book-now-btn{padding:10px 14px;font-size:0.95rem}
+      .img-card{height:140px}
+      .lights-wrap{display:none} /* hide lights on very small screens for clarity */
     }
   </style>
 </head>
-
 <body>
+  <!-- Header -->
   <header>
     <div class="header-left">
-      <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
+      <img src="ibs_logo.png" alt="Iconic Beauty Salon logo" />
       <h1>Iconic Beauty Salon</h1>
     </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="prices_ibs.html">Prices</a>
-      <a href="contact_us_ibs.html">Contact Us</a>
+      <a href="contact_us_ibs.html">Contact</a>
       <a href="gallery_ibs.html">Gallery</a>
     </nav>
-    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
+
+    <a class="book-now-btn" href="booking_ibs.html">Book Now</a>
   </header>
+
+  <!-- Festive toggle (user can enable/disable immediately) -->
+  <button id="festiveToggleBtn" class="festive-toggle" title="Toggle festive mode">Festive: On</button>
+
+  <!-- Top lights (will only show when festive active) -->
+  <div id="lightsWrap" class="lights-wrap" aria-hidden="true" style="display:none">
+    <div class="string" style="transform:translateY(8px)">
+      <!-- repeated bulbs -->
+      <div class="bulb b-red"></div><div class="bulb b-green"></div><div class="bulb b-gold"></div><div class="bulb b-white"></div>
+      <div class="bulb b-red"></div><div class="bulb b-green"></div><div class="bulb b-gold"></div><div class="bulb b-white"></div>
+      <div class="bulb b-red"></div><div class="bulb b-green"></div><div class="bulb b-gold"></div><div class="bulb b-white"></div>
+    </div>
+  </div>
 
   <main>
     <div class="page-wrapper">
-      <div class="side-panel left-panel">
-        <img src="IMG-20250829-WA0011(1).jpg" alt="">
-        <img src="Screenshot_20250828_160851_Instagram.jpg" alt="">
-        <img src="Screenshot_20250828_160912_Instagram.jpg" alt="">
-      </div>
+      <!-- Left side gallery -->
+      <aside class="side-panel" aria-label="Left gallery">
+        <div class="img-card"><img src="IMG-20250829-WA0011(1).jpg" alt="Salon look 1"></div>
+        <div class="img-card"><img src="Screenshot_20250828_160851_Instagram.jpg" alt="Salon look 2"></div>
+        <div class="img-card"><img src="Screenshot_20250828_160912_Instagram.jpg" alt="Salon look 3"></div>
+      </aside>
 
-      <div class="center-content">
-        <div style="text-align: center;">
-          <img src="shopfront.jpg" alt="Iconic Beauty Salon Storefront">
+      <!-- Center content -->
+      <section class="center-content" aria-labelledby="heroTitle">
+        <img class="center-content-img" src="shopfront.jpg" alt="Iconic Beauty Salon storefront">
+        <h2 id="heroTitle">Transform yourself into a Beauty Icon — Shine this season ✨</h2>
+        <p>At Iconic Beauty Salon, we blend luxury with joyful festive spirit. Treat yourself (or someone special) with our seasonal offers — book easily online.</p>
+        <p style="margin-top:8px;font-weight:600;color:#ffd700">Special: Holiday gift cards available — ask in-store or book online.</p>
+
+        <div style="margin-top:18px" class="social-buttons" aria-label="Social links">
+          <a class="social-btn" href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" rel="noopener">Facebook</a>
+          <a class="social-btn" href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" rel="noopener">Instagram</a>
+          <a class="social-btn" href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" rel="noopener">TikTok</a>
         </div>
-        <h2><b>Transform yourself into a Beauty Icon.</b></h2>
-        <p>At Iconic Beauty Salon, we believe beauty is timeless and confidence is key.</p>
-        <p>Our expert team offers a wide range of professional beauty treatments tailored to enhance your natural glow and leave you feeling refreshed and radiant.</p>
-        <p>Whether you're looking for a relaxing facial, a stylish haircut, or a complete makeover, we provide personalised care in a welcoming environment.</p>
-        <p>Book your appointment today and experience the iconic difference.</p>
-        <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
+      </section>
 
-        <div class="social-buttons">
-          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn">Facebook</a>
-          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn">Instagram</a>
-          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn">TikTok</a>
-        </div>
-      </div>
-
-      <div class="side-panel right-panel">
-        <img src="IMG-20250910-WA0005.jpg" alt="">
-        <img src="IMG-20250718-WA0043.jpg" alt="">
-        <img src="IMG-20250513-WA0011.jpg" alt="">
-      </div>
+      <!-- Right side gallery -->
+      <aside class="side-panel" aria-label="Right gallery">
+        <div class="img-card"><img src="IMG-20250910-WA0005.jpg" alt="Salon look 4"></div>
+        <div class="img-card"><img src="IMG-20250718-WA0043.jpg" alt="Salon look 5"></div>
+        <div class="img-card"><img src="IMG-20250513-WA0011.jpg" alt="Salon look 6"></div>
+      </aside>
     </div>
   </main>
 
@@ -309,21 +187,109 @@
     <p>© 2025 Iconic Beauty Salon. All rights reserved.</p>
   </footer>
 
-  <!-- SNOWFLAKES SCRIPT -->
+  <!-- ====== Festive JS: enable/disable, auto-on in December, snow and lights ====== -->
   <script>
-    const month = new Date().getMonth();
-    if (month === 11 || month === 0) { // December or January
-      const snowflakes = 40;
-      for (let i = 0; i < snowflakes; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.textContent = '❄';
-        snowflake.style.left = Math.random() * 100 + 'vw';
-        snowflake.style.animationDuration = (5 + Math.random() * 5) + 's';
-        snowflake.style.fontSize = (10 + Math.random() * 20) + 'px';
-        document.body.appendChild(snowflake);
+    (function(){
+      const toggleBtn = document.getElementById('festiveToggleBtn');
+      const lightsWrap = document.getElementById('lightsWrap');
+
+      // Helper: read url param ?xmas=1 to force on
+      function urlHasXmasParam(){ try { return new URLSearchParams(location.search).get('xmas') === '1'; } catch(e){ return false } }
+
+      // Determine initial state:
+      const now = new Date();
+      const month = now.getMonth(); // 0..11 (11 = Dec)
+      // active if: December OR url param xmas=1 OR saved localStorage 'festiveOn' = '1'
+      const saved = localStorage.getItem('festiveOn') === '1';
+      let festiveOn = (month === 11) || urlHasXmasParam() || saved;
+
+      // UI sync
+      function setToggleUI(){
+        toggleBtn.textContent = festiveOn ? 'Festive: On' : 'Festive: Off';
+        toggleBtn.style.background = festiveOn ? 'linear-gradient(90deg,#ff6161,#ffd166,#61ff9b,#8ad0ff)' : 'linear-gradient(90deg,#ddd,#bbb)';
+        lightsWrap.style.display = festiveOn ? 'block' : 'none';
       }
-    }
+
+      // Snow generator (lighter on mobile)
+      let snowEls = [];
+      function createSnowflakes(){
+        // remove existing
+        snowEls.forEach(el=>el.remove());
+        snowEls = [];
+        const count = Math.max(18, Math.min(60, window.innerWidth > 900 ? 40 : 18)); // fewer on small screens
+        for(let i=0;i<count;i++){
+          const s = document.createElement('div');
+          s.className = 'snowflake';
+          s.textContent = ['❄','✲','✻'][Math.floor(Math.random()*3)];
+          const left = Math.random()*100;
+          s.style.left = left + 'vw';
+          s.style.fontSize = (8 + Math.random()*20) + 'px';
+          const dur = 6 + Math.random()*6;
+          s.style.animationDuration = dur + 's';
+          s.style.animationDelay = (Math.random()*4) + 's';
+          s.style.opacity = 0.85;
+          s.style.transform = `translateY(-20vh) rotate(${Math.random()*360}deg)`;
+          s.style.willChange = 'transform';
+          s.style.pointerEvents = 'none';
+          s.style.zIndex = 1080;
+          s.style.left = left + 'vw';
+          s.style.top = (-5 - Math.random()*10) + 'vh';
+          s.style.position = 'fixed';
+          s.style.animationTimingFunction = 'linear';
+          s.style.animationName = 'fall';
+          document.body.appendChild(s);
+          snowEls.push(s);
+        }
+      }
+
+      // Activate festive visuals
+      function enableFestive(){
+        document.body.dataset.festive = '1';
+        lightsWrap.style.display = 'block';
+        createSnowflakes();
+      }
+      function disableFestive(){
+        document.body.dataset.festive = '0';
+        lightsWrap.style.display = 'none';
+        snowEls.forEach(s=>s.remove());
+        snowEls = [];
+      }
+
+      // Toggle handler
+      toggleBtn.addEventListener('click', ()=>{
+        festiveOn = !festiveOn;
+        localStorage.setItem('festiveOn', festiveOn ? '1' : '0');
+        setToggleUI();
+        if(festiveOn) enableFestive(); else disableFestive();
+      });
+
+      // Init UI & visuals
+      setToggleUI();
+      if(festiveOn) enableFestive();
+
+      // Auto-disable after Jan 1 (local time)
+      function checkAutoDisable(){
+        const now = new Date();
+        const year = now.getFullYear();
+        const jan2 = new Date(year,0,2); // Jan 2
+        if(now >= jan2){
+          // turn off by default unless user explicitly saved it on
+          if(localStorage.getItem('festiveOn') !== '1'){
+            festiveOn = false;
+            setToggleUI();
+            disableFestive();
+          }
+        }
+      }
+      checkAutoDisable();
+
+      // Recreate snow on resize for performance
+      let resizeTimer;
+      window.addEventListener('resize', ()=>{
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(()=>{ if(festiveOn) createSnowflakes() },300);
+      });
+    })();
   </script>
 </body>
 </html>
