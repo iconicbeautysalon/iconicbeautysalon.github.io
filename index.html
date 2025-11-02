@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Iconic Beauty Salon - Home</title>
+
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48x48.png">
@@ -15,8 +16,7 @@
       margin: 0;
       padding: 0;
       background-color: #222;
-      color: #D6A440;
-      overflow-x: hidden;
+      color: #B8860B;
     }
 
     header {
@@ -32,12 +32,13 @@
       justify-content: space-between;
       z-index: 10;
       box-sizing: border-box;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
     }
 
     .header-left {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .header-left img {
@@ -52,11 +53,13 @@
     }
 
     nav {
-      margin-left: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav a {
-      margin: 0 10px;
       color: #D6A440;
       text-decoration: none;
       font-weight: 600;
@@ -67,21 +70,19 @@
     }
 
     .book-now-btn {
-      background: linear-gradient(135deg, #d6a440, #b8860b);
+      background-color: #D6A440;
       color: #333;
       padding: 10px 20px;
       border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
       white-space: nowrap;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(214, 164, 64, 0.6);
+      transition: background-color 0.3s ease;
     }
 
     .book-now-btn:hover {
-      background: linear-gradient(135deg, #b8860b, #d6a440);
+      background-color: #b8860b;
       color: white;
-      box-shadow: 0 0 25px rgba(214, 164, 64, 0.8);
     }
 
     main {
@@ -93,20 +94,19 @@
       min-height: calc(100vh - 130px);
     }
 
-    /* SIDE PANELS */
     .side-panel {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 10px;
       padding: 10px;
       box-sizing: border-box;
-      gap: 10px;
     }
 
     .side-panel img {
       width: 100%;
-      height: 33%;
+      height: 100%;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(214, 164, 64, 0.6);
@@ -115,10 +115,9 @@
 
     .side-panel img:hover {
       transform: scale(1.03);
-      box-shadow: 0 0 35px rgba(214, 164, 64, 0.8);
+      box-shadow: 0 0 35px rgba(214, 164, 64, 0.9);
     }
 
-    /* CENTER CONTENT */
     .center-content {
       max-width: 700px;
       width: 100%;
@@ -126,8 +125,6 @@
       background-color: #222;
       color: #D6A440;
       border-radius: 8px;
-      z-index: 1;
-      position: relative;
       text-align: center;
     }
 
@@ -137,17 +134,6 @@
       max-height: 400px;
       object-fit: cover;
       border-radius: 8px;
-      box-shadow: 0 0 20px rgba(214, 164, 64, 0.6);
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-top: 1rem;
-    }
-
-    p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
     }
 
     .social-buttons {
@@ -165,28 +151,37 @@
       text-decoration: none;
       color: #333;
       background-color: #D6A440;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(214, 164, 64, 0.6);
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .social-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(214, 164, 64, 0.8);
+      background-color: #b8860b;
+      color: white;
     }
 
     .social-btn.facebook {
       background-color: #3b5998;
       color: white;
     }
+    .social-btn.facebook:hover {
+      background-color: #2d4373;
+    }
 
     .social-btn.instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       color: white;
+    }
+    .social-btn.instagram:hover {
+      opacity: 0.85;
     }
 
     .social-btn.tiktok {
       background-color: white;
       color: black;
+    }
+    .social-btn.tiktok:hover {
+      background-color: #f5f5f5;
     }
 
     footer {
@@ -196,47 +191,61 @@
       padding: 1rem;
     }
 
-    /* RESPONSIVE FIXES */
-    @media (max-width: 900px) {
-      .page-wrapper {
+    /* Mobile layout */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .header-left {
         flex-direction: column;
         align-items: center;
       }
 
-      .side-panel {
+      .header-left img {
+        height: 60px;
+        margin-bottom: 0.5rem;
+      }
+
+      nav {
+        margin: 0.5rem 0;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .book-now-btn {
+        display: inline-block;
+        margin-top: 0.75rem;
+        background-color: #D6A440;
+        color: #222;
+        padding: 10px 24px;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .page-wrapper {
+        flex-direction: column;
+      }
+
+      .side-panel {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
       }
 
       .side-panel img {
-        width: 48%;
-        height: 180px;
-      }
-
-      .center-content {
-        order: -1;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .header-left img {
-        height: 60px;
-      }
-
-      .header-left h1 {
-        font-size: 1.4rem;
-      }
-
-      nav a {
-        display: block;
-        margin: 0.4rem 0;
-      }
-
-      .side-panel img {
-        width: 100%;
-        height: 150px;
+        width: 45%;
+        height: auto;
       }
     }
   </style>
@@ -248,25 +257,25 @@
       <img src="ibs_logo.png" alt="Iconic Beauty Salon Logo" />
       <h1>Iconic Beauty Salon</h1>
     </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="prices_ibs.html">Prices</a>
       <a href="contact_us_ibs.html">Contact Us</a>
       <a href="gallery_ibs.html">Gallery</a>
     </nav>
-    <a href="booking_ibs.html" class="book-now-btn">Book now!</a>
+
+    <a href="booking_ibs.html" class="book-now-btn">Book Now!</a>
   </header>
 
   <main>
     <div class="page-wrapper">
-      <!-- LEFT PANEL IMAGES -->
       <div class="side-panel left-panel">
-        <img src="IMG-20250829-WA0011(1).jpg" alt="Salon image 1">
-        <img src="Screenshot_20250828_160851_Instagram.jpg" alt="Salon image 2">
-        <img src="Screenshot_20250828_160912_Instagram.jpg" alt="Salon image 3">
+        <img src="IMG-20250829-WA0011(1).jpg" alt="">
+        <img src="Screenshot_20250828_160851_Instagram.jpg" alt="">
+        <img src="Screenshot_20250828_160912_Instagram.jpg" alt="">
       </div>
 
-      <!-- CENTER CONTENT -->
       <div class="center-content">
         <img src="shopfront.jpg" alt="Iconic Beauty Salon Storefront">
         <h2><b>Transform yourself into a Beauty Icon.</b></h2>
@@ -277,17 +286,16 @@
         <p>Discover why our clients trust us for exceptional service and stunning results. Your journey to iconic beauty starts here!</p>
 
         <div class="social-buttons">
-          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook" aria-label="Facebook">Facebook</a>
-          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram" aria-label="Instagram">Instagram</a>
-          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok" aria-label="TikTok">TikTok</a>
+          <a href="https://www.facebook.com/iconicbeautysalonltd" target="_blank" class="social-btn facebook">Facebook</a>
+          <a href="https://www.instagram.com/iconicbeautysalonltd/" target="_blank" class="social-btn instagram">Instagram</a>
+          <a href="https://www.tiktok.com/@iconicbeautysalonltd" target="_blank" class="social-btn tiktok">TikTok</a>
         </div>
       </div>
 
-      <!-- RIGHT PANEL IMAGES -->
       <div class="side-panel right-panel">
-        <img src="IMG-20250910-WA0005.jpg" alt="Salon image 4">
-        <img src="IMG-20250718-WA0043.jpg" alt="Salon image 5">
-        <img src="IMG-20250513-WA0011.jpg" alt="Salon image 6">
+        <img src="IMG-20250910-WA0005.jpg" alt="">
+        <img src="IMG-20250718-WA0043.jpg" alt="">
+        <img src="IMG-20250513-WA0011.jpg" alt="">
       </div>
     </div>
   </main>
