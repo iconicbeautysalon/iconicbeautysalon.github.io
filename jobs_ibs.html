@@ -121,6 +121,13 @@
       resize: vertical;
     }
 
+    small {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
     button {
       margin-top: 1.5rem;
       width: 100%;
@@ -189,10 +196,10 @@
   <h2>Job Application</h2>
   <p>
     Interested in joining Iconic Beauty Salon?  
-    Please complete the form below and we’ll be in touch.
+    Please complete the form below.
   </p>
 
-  <form action="https://formspree.io/f/xykgeeqb" method="POST" enctype="multipart/form-data">
+  <form action="https://formspree.io/f/xykgeeqb" method="POST">
 
     <label>Full Name</label>
     <input type="text" name="full_name" required>
@@ -209,15 +216,26 @@
       <option>Beauty Therapist</option>
       <option>Nail Technician</option>
       <option>Hair Stylist</option>
-      <option>Receptionist</option>
       <option>Other</option>
     </select>
 
-    <label>Upload CV</label>
-    <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
+    <label>CV Link</label>
+    <input
+      type="url"
+      name="cv_link"
+      placeholder="Paste your Google Drive / Dropbox CV link"
+      required
+    >
+    <small>
+      Please upload your CV to Google Drive or Dropbox and paste the link above.
+    </small>
 
     <label>Additional Information</label>
-    <textarea name="message" rows="4" placeholder="Tell us about your experience..."></textarea>
+    <textarea
+      name="message"
+      rows="4"
+      placeholder="Tell us about your experience..."
+    ></textarea>
 
     <button type="submit">Submit Application</button>
 
